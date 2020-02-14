@@ -12,10 +12,12 @@
                 @endcomponent
             @endif
 
-            <div class="flex justify-between items-center">
-                <h1 class="text-3xl mb-5">Article Detail</h1>
+            <div class="flex justify-between items-center my-4">
+                <h1 class="text-3xl mb-5 leading-none">Article Detail</h1>
 
-                <a href="{{ route('console.articles.edit', ['id' => $article->id]) }}" class="text-blue-600 text-xl mr-2 hover:text-red-600">Edit</a>
+                <div>
+                    <a href="{{ route('console.articles.edit', ['id' => $article->id]) }}" class="bg-green-400 px-4 py-2 rounded text-white hover:bg-green-500">Edit</a>
+                </div>
             </div>
 
             <div class="border rounded px-12 py-8">

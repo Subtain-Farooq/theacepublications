@@ -13,7 +13,7 @@ use App\Models\Editor;
 class File extends Model
 {
     protected $fillable = [
-        'user_id', 'journal_id', 'manuscript_id', 'title', 'name', 'path', 'alt', 'size'
+        'user_id', 'journal_id', 'manuscript_id', 'editor_id', 'title', 'name', 'path', 'alt', 'size'
     ];
     public function user(){
         return $this->belongsTo(User::class);

@@ -249,18 +249,8 @@ class JournalController extends Controller
             'issue' => 'required|numeric'
         ]);
 
-        //$current_issue_no = Issue::where(['journal_id' => 2, 'issue_status' => 1])->first();
-       // $vol = Issue::where('journal_id', $id)->select('year')->get();
         $vol = Issue::where('journal_id', $id)->select(['year', 'issue_number'])->get();
         $volume = $vol->unique('year')->count();
-
-
-/*        if(!$vol->contains('issue_number', $request->issue) AND !$vol->contains('year', date('Y'))){
-            return 'aaaa';
-        }else{
-            return 'dsdsdsds';
-        }*/
-
 
 
         $journal = Journal::where('id', $id)->with('currentIssue')->first();

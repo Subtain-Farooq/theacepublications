@@ -10,7 +10,7 @@
             <h3 class="text-2xl mb-4">Add New Editor</h3>
         </div>
         <div class="w-full border px-8 py-10 rounded">
-            <form class="w-full -my-3" method="POST" action="{{ route('console.editors.store') }}">
+            <form class="w-full -my-3" method="POST" action="{{ route('console.editors.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex items-center my-3">
                     <div class="w-1/5">

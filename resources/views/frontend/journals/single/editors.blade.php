@@ -50,7 +50,11 @@
                                 @foreach($journal->editors as $editor)
                                     <div class="w-full overflow-hidden my-2">
                                         <div class="flex">
-                                            <img src="{{ url('images/user.jpg') }}" class="w-32 h-32">
+                                            @if($editor->image)
+                                            <img src="{{ url($editor->image->path.$editor->image->name) }}" class="w-32 h-32">
+                                            @else
+                                                <img src="{{ url('images/avatar.jpeg') }}" class="w-32 h-32">
+                                            @endif
                                             <div class="border w-full">
 
                                                 <div class="flex flex-row justify-between flex-wrap bg-gray-200 px-3 py-2">
@@ -58,26 +62,6 @@
                                                         {{ $editor->name }}
                                                     </span>
                                                         <span class="text-sm text-gray-600">
-                                                        {{ $editor->country->name }}
-                                                    </span>
-                                                </div>
-                                                <div class="mt-1 text-sm text-justify px-3 py-2">
-                                                    {{ $editor->departmental_address }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-full overflow-hidden my-2">
-                                        <div class="flex">
-                                            <img src="{{ url('images/avatar.jpeg') }}" class="w-32 h-32">
-                                            <div class="border w-full">
-
-                                                <div class="flex flex-row justify-between flex-wrap bg-gray-200 px-3 py-2">
-                                                    <span class="text-gray-800 text-lg font-bold tracking-wide">
-                                                        {{ $editor->name }}
-                                                    </span>
-                                                    <span class="text-sm text-gray-600">
                                                         {{ $editor->country->name }}
                                                     </span>
                                                 </div>

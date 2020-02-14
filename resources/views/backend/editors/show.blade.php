@@ -8,12 +8,15 @@
         <div class="w-full">
             <div class="flex justify-between">
                 <h3 class="text-2xl mb-4">Edit Editor</h3>
+                <div>
+                    <a href="{{ route('console.editors.edit', ['id' => $editor->id]) }}" class="bg-green-400 text-white px-4 py-2 rounded">Edit</a>
+                </div>
             </div>
 
             <div class="w-full border p-8 rounded">
                 <div class="flex flex-wrap overflow-hidden md:-mx-3 lg:-mx-3 xl:-mx-3">
 
-                    <div class="w-full overflow-hidden md:px-3 md:w-1/2 lg:px-3 lg:w-1/2  xl:px-3 xl:w-1/2">
+                    <div class="overflow-hidden w-4/5">
                         <div class="flex justify-between px-2 py-2 hover:bg-gray-100">
                             <div class="font-bold">Name</div> {{ $editor->name }}
                         </div>
@@ -24,11 +27,8 @@
                             <div class="font-bold">Contact Number</div> {{ $editor->contact_number }}
                         </div>
                         <div class="flex justify-between px-2 py-2 hover:bg-gray-100">
-                            <div class="font-bold">Departmental Address</div> {{ $editor->departmental_address }}
+                            <div class="font-bold">Address</div> {{ $editor->departmental_address }}
                         </div>
-                    </div>
-
-                    <div class="w-full overflow-hidden md:px-3 md:w-1/2 lg:px-3 lg:w-1/2 xl:px-3 xl:w-1/2">
                         <div class="flex justify-between px-2 py-2 hover:bg-gray-100">
                             <div class="font-bold">Country</div> {{ $editor->country->name }}
                         </div>
@@ -46,6 +46,14 @@
                         <div class="flex justify-between px-2 py-2 hover:bg-gray-100">
                             <div class="font-bold">Updated At</div> {{ $editor->updated_at->format('M d Y') }}
                         </div>
+                    </div>
+
+                    <div class="w-1/5 flex items-center justify-center">
+                        @if($editor->image)
+                            <img class="h-64 w-64" src="{{ url($editor->image->path.$editor->image->name) }}">
+                        @else
+                            <img class="h-64 w-64" src="{{ url('images/avatar.jpeg') }}">
+                        @endif
                     </div>
                 </div>
             </div>

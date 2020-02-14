@@ -6,8 +6,11 @@
 
     <div class="bg-white p-8 rounded">
         <div class="w-full">
-            <div class="flex justify-between">
-                <h3 class="text-2xl mb-4">User Detail</h3>
+            <div class="flex justify-between my-4">
+                <h3 class="text-2xl mb-4 leading-none">User Detail</h3>
+                <div>
+                    <a href="{{ route('console.users.edit', ['id' => $user->id]) }}" class="bg-green-400 text-white px-4 py-2 rounded hover:bg-green-500">Edit</a>
+                </div>
             </div>
 
             <div class="w-full border p-8 rounded">

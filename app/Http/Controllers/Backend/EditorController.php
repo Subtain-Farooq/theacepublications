@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Models\Editor;
 use App\Models\Journal;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,11 +41,12 @@ class EditorController extends Controller
             'email' => 'required|email|max:255|unique:editors',
             'contact_number' => 'required|string|max:60|unique:editors',
             'departmental_address' => 'string|required',
+            'image' => ['image', 'max:512'],
         ]);
 
         is_null($request->status) ? $status = 0 : $status = $request->status;
 
-        $result = Editor::create([
+        $editor = Editor::create([
             'country_id' => $request->country,
             'name' => $request->name,
             'email' => $request->email,
@@ -52,7 +55,23 @@ class EditorController extends Controller
             'status' => $status,
         ]);
 
-        if($result){
+        if($request->hasFile('image') AND $request->file('image')->isValid()){
+            $file = $request->file('image');
+            $path = 'public/avatar';
+            $public_path = 'storage/avatar/';
+            $size = $file->getSize();
+            $filename = 'profile-photo-' . time() . '.' . $file->getClientOriginalExtension();
+            $document_path = $file->storeAs($path, $filename);
+
+            $data = new File([
+                'name' => $filename,
+                'path' => $public_path,
+                'size' => $size
+            ]);
+            $editor->image()->save($data);
+        }
+
+        if($editor){
             $alert = true;
             $color = 'teal';
             $message = 'New Editord Added successfully.';
@@ -110,6 +129,35 @@ class EditorController extends Controller
             'departmental_address' => $request->departmental_address,
             'status' => $status,
         ]);
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $file = $request->file('image');
+            $path = 'public/avatar';
+            $public_path = 'storage/avatar/';
+            $size = $file->getSize();
+            $filename = 'profile-photo-' . time() . '.' . $file->getClientOriginalExtension();
+            $document_path = $file->storeAs($path, $filename);
+
+            if(isset($editor->image->name)){
+                $old_file = $path.'/'.$editor->image->name;
+                if(Storage::exists($old_file)){
+                    Storage::delete($old_file);
+                }
+                $editor->image()->update([
+                    'name' => $filename,
+                    'path' => $public_path,
+                    'size' => $size
+                ]);
+            }else{
+                $data = new File([
+                    'name' => $filename,
+                    'path' => $public_path,
+                    'size' => $size
+                ]);
+                $editor->image()->save($data);
+            }
+            $file->storeAs($path, $filename);
+        }
 
         if($result){
             $alert = true;

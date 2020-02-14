@@ -5,17 +5,22 @@
     @include('backend.layouts.components.shared.header')
     <div class="bg-white p-8 rounded">
         <div class="w-full">
+            <div class="flex justify-between items-center mb-5 pb-2">
+                <h3 class="text-4xl">{{ $journal->name }}</h3>
+                <div>
+                    <a href="{{ route('console.journals.edit', ['id' => $journal->id] ) }}" class="text-white bg-green-400 px-4 py-1 rounded mt-4 hover:bg-green-500">Edit</a>
+                </div>
+            </div>
             <div class="flex justify-between">
                 <div class="flex flex-col justify-between">
-                    <h3 class="text-4xl">{{ $journal->name }}</h3>
                     <ul>
                         <li class="text-lg my-1"><span class="font-bold text-gray-700">Frequency: </span> <span class="text-gray-700">{{ $journal->frequency }}</span></li>
                         <li class="text-lg my-1"><span class="font-bold text-gray-700">ISSN: </span> <span class="text-gray-700">{{ $journal->issn }}</span></li>
                         <li class="text-lg my-1"><span class="font-bold text-gray-700">Language: </span>English</li>
                     </ul>
-                    <div>
+                 {{--   <div>
                     <a href="{{ route('console.journals.edit', ['id' => $journal->id] ) }}" class="flex-grow bg-green-400 px-4 py-1 rounded mt-4 hover:bg-green-500">Edit this Journal</a>
-                    </div>
+                    </div>--}}
                 </div>
                 <div>
                     <img src="{{ url($journal->image->path.'/'.$journal->image->name) }}" class="border-2 w-40 object-left ">
