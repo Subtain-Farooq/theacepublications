@@ -1,26 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-//@import url('https://fonts.googleapis.com/css?family=Sree+Krushnadevaraya&display=swap');
-
-@import url(//db.onlinewebfonts.com/c/a78cfad3beb089a6ce86d4e280fa270b?family=Calibri);
-
-
+//@import url(//db.onlinewebfonts.com/c/a78cfad3beb089a6ce86d4e280fa270b?family=Calibri);
 
 @font-face {font-family: "Calibri"; src: url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.eot"); src: url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.woff") format("woff"), url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/a78cfad3beb089a6ce86d4e280fa270b.svg#Calibri") format("svg"); }
-
-
 
 body{
    // font-family: 'Roboto', sans-serif;
     font-family: 'Calibri', sans-serif;
 }
 
-.main-font{
-
-   // font-family: 'Merriweather', serif;
-   // font-family: 'C', serif;
-}
 .custom-label input:checked + svg {
     display: block !important;
 }

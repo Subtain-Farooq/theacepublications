@@ -1,7 +1,7 @@
 <div class="flex">
     <img src="{{ url($journal->image->path.'/'.$journal->image->name) }}" class="border-2 w-56 object-left ">
     <div class="w-full flex flex-col justify-between pl-4">
-        <p class="text-3xl pl-5 py-2 bg-blue-800 text-white border-b-4 border-blue-500">{{ $journal->name }}</p>
+        <p class="text-2xl pl-5 leading-none py-4 bg-blue-800 text-white border-b-4 border-blue-500">{{ $journal->name }}</p>
         <ul class="">
             <li class="text-lg my-1"><span class="font-bold text-gray-700">Frequency: </span> <span class="text-gray-700">{{ $journal->frequency }}</span></li>
             <li class="text-lg my-1"><span class="font-bold text-gray-700">ISSN: </span> <span class="text-gray-700">{{ $journal->issn }}</span></li>

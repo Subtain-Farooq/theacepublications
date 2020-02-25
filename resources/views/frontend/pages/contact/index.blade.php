@@ -12,7 +12,7 @@
 
             <div class=" w-2/5">
                 <div class="w-full">
-                    <h1 class="text-4xl text-center py-4 text-white tracking-wide main-font font-bold bg-blue-800  text-left">Contact Information</h1>
+                    <h1 class="text-3xl text-center py-6 text-white font-sans tracking-wide main-font bg-blue-800 text-left">Contact Information</h1>
                     <div class="py-8 px-12 border">
                         <div class="my-6">
                             <h2 class="text-blue-900 text-2xl font-bold">Address:</h2>
@@ -37,7 +37,7 @@
 
             </div>
 
-            <div class="w-3/5  border rounded ml-4">
+            <div class="w-3/5  border ml-4">
                 <div class="p-12">
                     <form method="POST" action="{{ route('contact.sendEmail') }}">
                         @csrf

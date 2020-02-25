@@ -68,13 +68,9 @@ class RegisterController extends Controller
             'fax_number' => ['nullable', 'numeric', 'unique:users'],
             'live_dna' => ['max:100', 'string', 'nullable', 'unique:users'],
             'scopus' => ['max:100', 'string', 'nullable', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'max:60'],
 
-          /*  'images.title' => ['string', 'unique:images'],
-            'path' => ['string'],
-            'size' => ['numeric'],
-            'avatar' => ['file', 'image', 'mimes:jpeg,jpg,webp,png', 'max:200', 'dimensions:min_width=160,min_height=160'],
-        */
             ]);
     }
 
@@ -107,6 +103,7 @@ class RegisterController extends Controller
             'live_dna' => $data['live_dna'],
             'scopus' => $data['scopus'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
         ]);
     }
 

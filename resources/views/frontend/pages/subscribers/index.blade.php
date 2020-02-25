@@ -4,7 +4,7 @@
 <div class="bg-white">
     <div class="container mx-auto px-4 my-12">
         <div class="py-2">
-            <h1 class="text-4xl tracking-wide text-white main-font font-bold bg-blue-800 px-8 text-left inline-block mb-4 capitalize">For Subscribers</h1>
+            <h1 class="text-2xl text-white  bg-blue-800 px-8 text-left inline-block mb-5">For Subscribers</h1>
             <div class="">
                 <p class="my-1 text-justify">
                     ACE Publications provides a range of options to purchase our journals, from a subscription to an individual journal through to site-wide access to our entire online collection and customised consortia pricing. Pricing information for all our titles is available online
@@ -17,7 +17,7 @@
         </div>
 
         <div class="py-2">
-            <h1 class="text-3xl main-font font-bold text-blue-900">Pay via Credit Card </h1>
+            <h1 class="text-2xl text-blue-700 mb-2">Pay via Credit Card </h1>
             <div class="">
                 <p class="text-justify">
                     For online transaction please click the link
@@ -27,7 +27,7 @@
         </div>
 
         <div class="py-2">
-            <h1 class="text-3xl main-font font-bold text-blue-900 capitalize">Pay via Bank to Bank</h1>
+            <h1 class="text-2xl text-blue-700 mb-2">Pay via Bank to Bank</h1>
 
             <div class="">
                 <div>

@@ -38,6 +38,7 @@ class ProfileController extends Controller
             'fax_number' => $request->fax_number,
             'live_dna' => $request->live_dna,
             'scopus' => $request->scopus,
+            'address' => $request->address,
         ]);
 
         if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
@@ -82,9 +83,4 @@ class ProfileController extends Controller
         ]);
     }
 
-
-    public function destroy($id)
-    {
-        //
-    }
 }

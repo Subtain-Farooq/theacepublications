@@ -12,7 +12,7 @@
                 @endif
                 <div class="bg-white mt-4">
                     <div class="bg-blue-800 mb-5">
-                        <h1 class="text-4xl leading-none tracking-wider main-font font-semibold p-5 text-white">Join us as Reviewer</h1>
+                        <h1 class="text-3xl leading-none tracking-wider main-font font-sans p-5 text-white">Join us as Reviewer</h1>
                     </div>
                     <form method="POST" action="{{ route('reviewer.store') }}" enctype="multipart/form-data">
                         @csrf

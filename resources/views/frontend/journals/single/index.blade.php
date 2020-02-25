@@ -39,7 +39,8 @@
 
                 <div class="w-full overflow-hidden md:my-2 md:px-2 md:w-4/6 lg:my-3 lg:px-3 lg:w-4/6 xl:my-3 xl:px-3 xl:w-4/6">
                     @include('frontend.journals.single.shared-title')
-                    <h2 class="text-blue-800 text-3xl my-5 font-bold">About Journal</h2>
+                    <h1 class="text-2xl main-font mt-8 mb-5 font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">About Journal</h1>
+
                     <div class="text-gray-700 text-justify">
                         {!! $journal->description !!}
                     </div>

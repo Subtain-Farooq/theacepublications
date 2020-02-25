@@ -4,11 +4,11 @@
 
     <div class="bg-white py-32">
         <div class="container mx-auto px-4">
-            <div class="w-full max-w-md mx-auto ">
+            <div class="w-full max-w-sm mx-auto ">
 
                 <div class="bg-white">
                     <div class="bg-blue-800 mb-5">
-                        <h1 class="text-4xl leading-none tracking-wider main-font font-semibold p-5 text-white">Login</h1>
+                        <h1 class="text-3xl leading-none tracking-wider font-sans p-5 text-white">Login</h1>
                     </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

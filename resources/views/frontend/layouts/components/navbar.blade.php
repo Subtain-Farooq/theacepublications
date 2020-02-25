@@ -252,15 +252,19 @@
         <div class="flex justify-between">
             <div class="flex items-center w-2/5 -mx-3">
 
-                <a href="{{ route('home') }}" class="px-3 ml-3 text-xl  hover:text-blue-700 @if(request()->is('/')) font-semibold text-blue-800 tracking-wide @endif">Home</a>
+                <a href="{{ route('home') }}" class="px-3 ml-3 text-xl  hover:text-blue-700 @if(request()->is('/')) text-blue-700 tracking-wide @endif">Home</a>
 
-                <a href="{{ route('about') }}" class="px-3 ml-3 text-xl  hover:text-blue-700 @if(request()->is('about')) font-semibold text-blue-800 tracking-wide @endif">About</a>
+                <a href="{{ route('about') }}" class="px-3 ml-3 text-xl  hover:text-blue-700 @if(request()->is('about')) text-blue-700 tracking-wide @endif">About</a>
 
                 {{--<a href="{{ route('ethics') }}" class="px-3  text-xl hover:text-blue-700 @if(request()->is('publishing-ethics')) font-semibold text-blue-800 tracking-wide @endif">Ethics</a>--}}
 
                 <div class="relative px-3 inline">
                     <button onclick="guideline()"
-                            class="inline-block flex items-center focus:outline-none text-xl">
+                        class="inline-block flex items-center focus:outline-none text-xl
+                        @if(request()->is('guidelines-to-authors') || request()->is('for-editors') || request()->is('for-reviewers'))
+                        text-blue-700 tracking-wide
+                        @endif
+                        ">
 
                         Guidelines
 
@@ -269,15 +273,35 @@
 
                     </button>
                     <div id="guideButton" class="hidden absolute z-50 right-0 w-48 bg-white border py-3 mt-4 mr-4">
-                        <a href="{{ route('authors') }}" class="block px-6 py-2 text-gray-600 hover:bg-indigo-100">For Authors</a>
-                        <a href="{{ route('for-editors') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">For Editors</a>
-                        <a href="{{ route('for-reviewers') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">For Reviewers</a>
+                        <a href="{{ route('authors') }}"
+                            class="block px-6 py-2 text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('guidelines-to-authors'))
+                            text-blue-700
+                            @endif
+                            ">
+                            For Authors
+                        </a>
+                        <a href="{{ route('for-editors') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                        @if(request()->is('for-editors'))
+                        text-blue-700
+                        @endif">
+                            For Editors
+                        </a>
+                        <a href="{{ route('for-reviewers') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                        @if(request()->is('for-reviewers'))
+                        text-blue-700
+                        @endif
+                        ">For Reviewers</a>
                     </div>
                 </div>
 
                 <div class="relative px-3 block">
                     <button onclick="policy()"
-                            class="dropbtn inline-block flex items-center focus:outline-none text-xl">
+                            class="dropbtn inline-block flex items-center focus:outline-none text-xl
+                            @if(request()->is('authorship') || request()->is('editorial-process') || request()->is('publication-ethics') || request()->is('transparency-policy') || request()->is('licensing-copyrights') || request()->is('correction') || request()->is('article-processing-charges') )
+                            text-blue-700
+                            @endif
+                            ">
 
                         Policies
 
@@ -286,13 +310,42 @@
 
                     </button>
                     <div id="policyButton" class="hidden w-64 absolute z-50 right-0 bg-white border py-3 mt-4 mr-4">
-                        <a href="{{ route('authorship') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Authorship</a>
-                        <a href="{{ route('editorial-process') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Editorial Process</a>
-                        <a href="{{ route('publication-ethics') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Publication Ethics</a>
-                        <a href="{{ route('transparency-policy') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Transparency Policy</a>
-                        <a href="{{ route('licensing-copyrights') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Licenses and Copyright</a>
-                        <a href="{{ route('correction') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Correction and Retractions</a>
-                        <a href="{{ route('article-processing') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Article Processing Charges </a>
+                        <a href="{{ route('authorship') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('authorship'))
+                            text-blue-700
+                            @endif
+                        ">
+                            Authorship</a>
+                        <a href="{{ route('editorial-process') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('editorial-process'))
+                            text-blue-700
+                            @endif
+                        ">Editorial Process</a>
+                        <a href="{{ route('publication-ethics') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                        @if(request()->is('publication-ethics'))
+                        text-blue-700
+                        @endif
+                        ">Publication Ethics</a>
+                        <a href="{{ route('transparency-policy') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('transparency-policy'))
+                            text-blue-700
+                            @endif
+                        ">Transparency Policy</a>
+                        <a href="{{ route('licensing-copyrights') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('licensing-copyrights'))
+                            text-blue-700
+                            @endif
+                        ">Licenses and Copyright</a>
+                        <a href="{{ route('correction') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('correction'))
+                            text-blue-700
+                            @endif
+                        ">Correction and Retractions</a>
+                        <a href="{{ route('article-processing') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100
+                            @if(request()->is('article-processing-charges'))
+                            text-blue-700
+                            @endif
+                        ">Article Processing Charges </a>
 
                     </div>
                 </div>
@@ -312,14 +365,14 @@
 
             <div class="flex items-center justify-end w-2/5">
                 <div class="flex items-center -mx-3">
-                    <a href="{{ route('journals') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('journals*')) font-semibold text-blue-800 tracking-wide @endif">Journals</a>
-                    <a href="{{ route('contact') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('contact-us')) font-semibold text-blue-800 tracking-wide @endif">Contact</a>
+                    <a href="{{ route('journals') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('journals*'))  text-blue-700 tracking-wide @endif">Journals</a>
+                    <a href="{{ route('contact') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('contact-us'))  text-blue-700 tracking-wide @endif">Contact</a>
                     @guest()
-                        <a href="{{ route('login') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('login')) font-semibold text-blue-800 tracking-wide @endif">Login</a>
-                        <a href="{{ route('register') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('register')) font-semibold text-blue-800 tracking-wide @endif">Register</a>
+                        <a href="{{ route('login') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('login')) text-blue-700 tracking-wide @endif">Login</a>
+                        <a href="{{ route('register') }}" class="px-3 text-xl hover:text-blue-700 @if(request()->is('register')) text-blue-700 tracking-wide @endif">Register</a>
                     @endguest
 
-                    <a href="{{ route('manuscript.create') }}" class="px-3 text-red-400 text-xl hover:text-blue-700 @if(request()->is('dashboard/manuscript')) font-semibold text-blue-800 tracking-wide @endif">Post Manuscript</a>
+                    <a href="{{ route('manuscript.create') }}" class="px-3 text-red-400 text-xl hover:text-blue-700 @if(request()->is('dashboard/manuscript')) text-blue-700 tracking-wide @endif">Post Manuscript</a>
 
 
                     @auth()

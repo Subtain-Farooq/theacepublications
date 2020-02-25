@@ -27,11 +27,11 @@
 
 
                 <div class="my-8">
-                    <div class="flex justify-between border-2 border-blue-800 p-8">
+                    <div class="flex justify-between border-2 border-blue-800 p-2">
 
-                            <div class="flex flex-col justify-between">
+                            <div class="flex flex-col justify-between p-5">
                                 <div>
-                                    <h2 class="text-3xl text-gray-800 mb-3 tracking-wide">{{ $article->currentIssue->journal->name }}</h2>
+                                    <h2 class="text-3xl text-gray-700 mb-2 font-sans tracking-wide">{{ $article->currentIssue->journal->name }}</h2>
                                     <div class="">
                                         <p class="text-gray-700 tracking-wider leading-loose">
                                             <span class="font-bold">Year:</span> {{ $article->currentIssue->year }} |
@@ -45,19 +45,19 @@
                                     </p>
                                 </div>
                                 <div>
-                                    <a href="{{ url($article->document->path. $article->document->name) }}" class="inline-block px-6 py-3 tracking-wider text-lg font-bold text-white bg-blue-700 hover:bg-blue-800" download>Download Article</a>
+                                    <a href="{{ url($article->document->path. $article->document->name) }}" class="inline-block px-8 py-1 tracking-widest text-lg text-white bg-blue-800 hover:bg-blue-700" download>Download Article</a>
                                 </div>
 
                             </div>
 
                         <div>
-                            <img src="{{ url($article->currentIssue->journal->image->path.'/'.$article->currentIssue->journal->image->name) }}" class="border-2 w-40 object-left ">
+                            <img src="{{ url($article->currentIssue->journal->image->path.'/'.$article->currentIssue->journal->image->name) }}" class="w-40 object-left ">
                         </div>
                     </div>
                 </div>
 
                 <div class="my-8 pt-2">
-                    <h1 class="text-3xl text-blue-800 text-justify tracking-wide leading-tight border-l-4 border-blue-800 pl-4">{{ $article->title }}</h1>
+                    <h1 class="text-2xl text-blue-700 text-justify tracking-wide leading-snug border-l-4 border-blue-700 pl-4">{{ $article->title }}</h1>
                     <p class="text-lg tracking-wider my-3">
                         <span class="font-bold pr-2 text-gray-700">Authors:</span>
                         <span class=" text-pink-800 ">
@@ -66,12 +66,12 @@
                     </p>
                 </div>
                 <div class="my-8">
-                    <h1 class="text-2xl text-gray-800 font-bold tracking-wide leading-none ">Abstract</h1>
+                    <h1 class="text-2xl text-blue-700 tracking-wide leading-none font-sans">Abstract</h1>
                     <div class="text-justify my-2">{!! $article->abstract !!}</div>
                 </div>
 
                 <div class="my-8 bg-gray-200 px-10 py-8">
-                    <h4 class="text-gray-700 text-xl font-bold tracking-wide">How to cite this article:</h4>
+                    <h4 class="text-gray-700 text-xl font-sans tracking-wide">How to cite this article:</h4>
                     <div class="text-justify my-2 text-gray-800">
                          {!! $article->cite !!}
                     </div>

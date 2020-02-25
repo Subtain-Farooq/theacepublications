@@ -37,9 +37,10 @@
 
                 <div class="w-full overflow-hidden md:my-2 md:px-2 md:w-4/6 lg:my-3 lg:px-3 lg:w-4/6 xl:my-3 xl:px-3 xl:w-4/6">
                     @include('frontend.journals.single.shared-title')
-                    <div class="text-gray-800 text-justify mt-5">
+                    <div class="text-gray-800 text-justify mt-8 ">
                         <div class="my-1">
-                            <h1 class="text-3xl main-font font-bold text-blue-900">Guide to Authors</h1>
+                            <h1 class="text-2xl main-font font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">Guide to Authors</h1>
+                            
                             <div class="">
                                 <p class="my-4 text-justify">
                                     The foundations of all journals under ACE are wholly based on originality and creativity that authors of all publications are required to maintain while writing their papers. Authors are invited to submit the papers through.

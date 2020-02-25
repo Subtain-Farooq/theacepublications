@@ -39,6 +39,11 @@
                     <div class="flex justify-between my-1">
                         <span>Generated Date</span> <span class="capitalize font-bold tracking-wide">{{ $invoice->generated_at->format('d M Y') }}</span>
                     </div>
+                    @if(!is_null($invoice->cleared_at))
+                        <div class="flex justify-between my-1">
+                            <span>Cleared Date</span> <span class="capitalize font-bold tracking-wide">{{ $invoice->cleared_at->format('d M Y') }}</span>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -71,8 +76,11 @@
                 </div>
             </div>
         </div>
+        <form method="POST" action="{{ route('console.invoice.download', ['id' => $invoice->id]) }}">
+            @csrf
+            <button type="submit" class="bg-blue-600 px-5 py-2 rounded text-white hover:bg-blue-700">Download Invoice</button>
+        </form>
 
-        <button class="bg-blue-600 px-5 py-2 rounded text-white hover:bg-blue-700">Download Invoice</button>
     </div>
 </div>
 @endsection

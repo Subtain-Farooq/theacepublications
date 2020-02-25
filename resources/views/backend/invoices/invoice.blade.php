@@ -44,8 +44,8 @@
     <tr>
         <td>
             <div style="padding: 15px;">
-                <b>{{ Auth::user()->name }}</b><br>
-                <address style="padding-top: 6px;">{{ Auth::user()->address }}</address>
+                <b>{{ $invoice->manuscript->user->name }}</b><br>
+                <address style="padding-top: 6px;">{{  $invoice->manuscript->user->address }}</address>
             </div>
         </td>
     </tr>

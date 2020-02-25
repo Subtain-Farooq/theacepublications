@@ -243,7 +243,7 @@
                     'COPE Ethical Guidelines for Peer Reviewers. Committee on Publication Ethics. <a href="http://publicationethics.org/files/u7140/Peer review guidelines.pdf" class="text-blue-600 hover:underline">Available online.</a>',
                     'Hames, I. Peer Review and Manuscript Management in Scientific Journals: <a href="https://www.wiley.com/en-au/Peer+Review+and+Manuscript+Management+in+Scientific+Journals%3A+Guidelines+for+Good+Practice-p-9781405131599" class="text-blue-600 hover:underline">Guidelines for Good Practice</a>. Wiley-Blackwell: Oxford, UK, 2007.',
                     'Writing a journal article review. Australian National University: Canberra, Australia, 2010. <a href="https://academicskills.anu.edu.au/node/492" class="text-blue-600 hover:underline">Available online</a>.',
-                    'Golash-Boza, T. How to write a peer review for an academic journal: Six steps from start to finish. <a href="" class="text-blue-600 hover:underline">Available online</a>.',
+                    'Golash-Boza, T. How to write a peer review for an academic journal: Six steps from start to finish. <a href="http://www.phd2published.com/2012/05/09/how-to-write-a-peer-review-for-an-academic-journal-six-steps-from-start-to-finish-by-tanya-golash-boza/" class="text-blue-600 hover:underline">Available online</a>.',
                 ]; ?>
 
                 <ul class="list-disc ml-10">

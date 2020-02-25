@@ -43,7 +43,7 @@
                     @include('frontend.journals.single.shared-title')
 
                     <div class="my-5">
-                        <h2 class="text-blue-800 text-3xl font-bold">Current Issues</h2>
+                        <h1 class="text-2xl main-font mt-3 mb-4 font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">Current Issues</h1>
                         <div class="-my-3">
                             @if(isset($journal->currentIssue->articles) && $journal->currentIssue->articles->isNotEmpty())
                                 @foreach($journal->currentIssue->articles as $article)

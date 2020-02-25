@@ -2,11 +2,11 @@
 
 @section('content')
 @include('backend.layouts.components.shared.header')
-<div class="bg-white p-6 rounded">
+<div class="">
     <div class="w-full">
-        <div class="">
+        {{-- <div class="">
             <h3 class="text-2xl mb-3">All Manuscript Types</h3>
-        </div>
+        </div> --}}
         @if(session('alert'))
             @component('backend.layouts.components.shared.alert', ['color' => session('color')])
                 {{ session('message') }}
@@ -14,7 +14,7 @@
         @endif
 
         @if($types->isNotEmpty())
-            <table class="w-full border">
+            <table class="w-full border bg-white">
                 <thead>
                 <tr class="bg-gray-200">
                     <th class="px-4 py-2 w-20">Sr No.</th>

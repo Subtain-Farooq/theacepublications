@@ -37,7 +37,7 @@
     <div class="bg-white p-8 rounded">
         <div class="w-full">
             <div class="flex justify-between">
-                <h3 class="text-2xl mb-4">Add New Journal</h3>
+                <h3 class="text-2xl mb-4">Edit {{ $journal->name }}</h3>
             </div>
 
             <div class="w-full border px-8 py-10 rounded">

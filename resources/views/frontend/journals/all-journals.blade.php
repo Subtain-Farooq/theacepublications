@@ -33,7 +33,7 @@
 
                         <div class="">
                             @if($issues->isNotEmpty())
-                            <h1 class="text-white leading-none bg-blue-800 px-5 py-4 text-4xl">Latest Issues</h1>
+                            <h1 class="text-white leading-none bg-blue-800 p-5 text-2xl font-sans antialiased">Latest Issues</h1>
                             <div class="mb-5 border-2 border-t-0 px-6 py-5 overflow-auto h-64">
                                 <div class="-my-5">
                                     @foreach($issues as $issue)
@@ -55,8 +55,8 @@
 
                             {{-- <h1 class="text-4xl mb-2 text-blue-900 font-bold tracking-wide">Agricultural Science</h1>--}}
 
-                            <div class="text-white leading-none px-5 py-4 bg-blue-800">
-                                <h2 class="inline-block text-4xl">All Journals</h2>
+                            <div class="text-white leading-none p-5 bg-blue-800">
+                                <h2 class="inline-block text-2xl font-sans antialiased">All Journals</h2>
                                 @if(!request()->is('journals'))
                                     <a href="{{ route('journals') }}" class="ml-2 hover:underline">View all journals</a>
                                 @endif
@@ -70,7 +70,7 @@
                                                 <div class="group flex flex-col items-center justify-center border-2 hover:border-blue-800">
                                                     <img src="{{ url($journal->image->path.'/'.$journal->image->name) }}" class="w-full object-contain">
                                                     <div class="w-full flex items-center justify-center bg-gray-200 text-blue-800 px-3 h-20 group-hover:bg-blue-800">
-                                                        <h3 class="text-center font-bold mt-2 capitalize tracking-wide  group-hover:text-white"> {{ $journal->name }}</h3>
+                                                        <h3 class="text-center font-semibold font-sans mt-2 group-hover:text-white"> {{ $journal->name }}</h3>
                                                     </div>
                                                 </div>
                                             </a>

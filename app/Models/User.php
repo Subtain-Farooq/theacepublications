@@ -31,6 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'live_dna',
         'scopus',
         'password',
+        'address'
     ];
 
     /**

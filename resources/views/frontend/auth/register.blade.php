@@ -3,10 +3,10 @@
 @section('content')
 <div class="bg-white py-32">
     <div class="container mx-auto px-4">
-        <div class="w-full max-w-4xl mx-auto">
+        <div class="w-full max-w-3xl mx-auto">
             <div class="bg-white">
                 <div class="bg-blue-800 mb-5">
-                    <h1 class="text-4xl leading-none tracking-wider main-font font-semibold p-5 text-white">Create Account</h1>
+                    <h1 class="text-3xl leading-none tracking-wider font-sans p-5 text-white">Create Account</h1>
                 </div>
                 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
@@ -83,6 +83,17 @@
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+
+                            {{-- <label>Address</label>--}}
+                            <input type="text" name="address" class="w-full px-3 py-2 border-2 outline-none @error('address') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" placeholder="Address">
+                            @error('address')
+                            <p class="text-red-600">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
                         <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
                             {{-- <label>Password</label>--}}
                             <input type="password" name="password" class="w-full px-3 py-2 border-2 outline-none @error('password') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" placeholder="Password">
@@ -90,26 +101,6 @@
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
-
-                            {{-- <label>Password</label>--}}
-                            <input type="password" name="password_confirmation" class="w-full px-3 py-2 border-2 outline-none @error('password') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" placeholder="Confirm Password">
-                            @error('password')
-                            <p class="text-red-600">{{ $message }}</p>
-                            @enderror
-
-                        </div>
-
-                       {{-- <div class="w-full my-1 px-1">
-                            <label class="w-full block px-3 py-2 border-2 outline-none @error('avatar') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror">
-                                <span class="text-gray-500">Upload Your Image</span>
-                                <input type="file" name="avatar" class="hidden">
-                            </label>
-                            @error('avatar')
-                            <p class="text-red-600">{{ $message }}</p>
-                            @enderror
-
-                        </div>--}}
 
                         <div class="my-3 px-1">
                             <p class="text-sm tracking-wide">By registering you are agree with our <a href="#" class="text-blue-700 hover:underline">terms & conditions</a>  and have read and understood the  <a href="#" class="text-blue-700 hover:underline">privacy policy.</a></p>

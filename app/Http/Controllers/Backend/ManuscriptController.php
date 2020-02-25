@@ -60,6 +60,7 @@ class ManuscriptController extends Controller
             $code = substr($str, 22).'-'.rand(555,10000);
             $invoice_number = date('dmy').'-'.$code;
             $generated_at = now();
+
             $manuscript->invoice()->create([
                 'invoice_number' => $invoice_number,
                 'status' => 'pending',
@@ -67,10 +68,11 @@ class ManuscriptController extends Controller
                 'cleared_at' => null,
             ]);
         }elseif($request->payment == 'paid'){
-
-           $manuscript->invoice()->update([
-               'status' => 'paid'
-           ]);
+            $cleared_at = now();
+            $manuscript->invoice()->update([
+                'status' => 'paid',
+                'cleared_at' => $cleared_at
+            ]);
         }
 
         if($result){

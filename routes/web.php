@@ -210,6 +210,7 @@ Route::group(['domain' => 'console.theacepublications.bb', 'guard' => 'console',
         //Invoices
         Route::get('invoices', 'InvoiceController@index')->name('console.invoices');
         Route::get('invoices/{id}/show', 'InvoiceController@show')->name('console.invoice.show');
+        Route::Post('invoice/download/{id}', 'InvoiceController@invoice')->name('console.invoice.download');
 
     });
 });

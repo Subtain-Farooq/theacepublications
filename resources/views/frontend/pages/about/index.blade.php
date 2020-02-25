@@ -1,10 +1,9 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-<div class="bg-white">
+<div class="bg-white"></div>
     <div class="container mx-auto px-4 my-12">
-
-        <h1 class="text-2xl text-white  bg-blue-800 px-8 text-left inline-block mb-5">About Us</h1>
+        <h1 class="text-2xl text-white  bg-blue-800 px-8 text-left inline-block mb-5">About us</h1>
         <p class="pb-5 text-justify">
             ACE Publications is an independent open access scientific publisher showcases innovative research and ideas aimed at improving health and linking research and practice to the benefit of researchers. ACE Publications committed to providing a peer reviewed platform to outstanding researchers and scientists to exhibit their findings. It Publishes original research, analysis, review, case study articles.
 

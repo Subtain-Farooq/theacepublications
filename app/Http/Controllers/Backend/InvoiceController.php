@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Invoice;
 use App\Models\Manuscript;
+use App\Models\User;
+use PDF;
 
 class InvoiceController extends Controller
 {
@@ -30,37 +32,15 @@ class InvoiceController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function invoice($id){
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $invoice = Invoice::where('id', $id)->with('manuscript')->first();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $invoice = compact('invoice');
+
+        $pdf = PDF::loadView('backend.invoices.invoice', $invoice);
+        return $pdf->download('invoice.pdf');
+
+
     }
 }

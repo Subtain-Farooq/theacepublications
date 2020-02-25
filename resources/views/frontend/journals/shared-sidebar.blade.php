@@ -1,6 +1,6 @@
 <div class="w-full">
-    <div class="text-white leading-none px-5 py-4 bg-blue-800">
-        <h2 class="inline-block text-4xl">Journals Category</h2>
+    <div class="text-white leading-none p-5 bg-blue-800">
+        <h2 class="inline-block text-2xl font-sans antialiased">Journals Category</h2>
        {{-- @if(!request()->is('journals'))
             <a href="{{ route('journals') }}" class="ml-2 hover:underline">View all journals</a>
         @endif--}}
@@ -23,5 +23,5 @@
 
         @endforeach
     </ul>
-    <a href="{{ route('manuscript.create') }}" class="inline-block w-full bg-gray-400 text-gray-700 tracking-wide py-3 font-bold my-4 text-center text-xl hover:text-white hover:bg-blue-900">Submit Your Manuscript</a>
+    <a href="{{ route('manuscript.create') }}" class="inline-block w-full bg-gray-400 text-gray-700 tracking-wide leading-sung py-1 my-4 text-center text-xl hover:text-white hover:bg-blue-900">Submit Your Manuscript</a>
 </div>
