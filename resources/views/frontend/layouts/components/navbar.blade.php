@@ -286,12 +286,11 @@
 
                     </button>
                     <div id="policyButton" class="hidden w-64 absolute z-50 right-0 bg-white border py-3 mt-4 mr-4">
+                        <a href="{{ route('authorship') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Authorship</a>
+                        <a href="{{ route('editorial-process') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Editorial Process</a>
                         <a href="{{ route('publication-ethics') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Publication Ethics</a>
                         <a href="{{ route('transparency-policy') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Transparency Policy</a>
-                        <a href="{{ route('editorial-process') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Editorial Process</a>
-                        <a href="#" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Competing Interest</a>
                         <a href="{{ route('licensing-copyrights') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Licenses and Copyright</a>
-                        <a href="{{ route('authorship') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Authorship</a>
                         <a href="{{ route('correction') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Correction and Retractions</a>
                         <a href="{{ route('article-processing') }}" class="block px-6 py-2  text-gray-600 hover:bg-indigo-100">Article Processing Charges </a>
 

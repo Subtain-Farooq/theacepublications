@@ -32,11 +32,10 @@
 
 
                         <div class="">
+                            @if($issues->isNotEmpty())
                             <h1 class="text-white leading-none bg-blue-800 px-5 py-4 text-4xl">Latest Issues</h1>
                             <div class="mb-5 border-2 border-t-0 px-6 py-5 overflow-auto h-64">
                                 <div class="-my-5">
-
-
                                     @foreach($issues as $issue)
                                         <a href="{{ route('manuscript', ['doi' => $issue->doi]) }}" class="block my-5">
                                             <h4>{{ $issue->journal }}</h4>
@@ -50,6 +49,7 @@
                                     @endforeach
                                 </div>
                             </div>
+                            @endif
 
 
 
