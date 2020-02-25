@@ -8,9 +8,9 @@
                 {{ Session::get('message') }}
             @endcomponent
         @endif
-        <div class="border mb-16 mt-6 px-10 py-8">
+        <div class="border mb-16 mt-6 px-16 py-12">
             <div class="flex justify-between items-center">
-                <h1 class="text-blue-900 text-4xl font-bold tracking-wide">Profile</h1>
+                <h1 class="text-blue-900 text-3xl">Profile</h1>
                 <a href="{{ route('dashboard.profile.edit') }}" class="text-blue-600 hover:text-red-400">Edit</a>
             </div>
             <div class="mt-2">

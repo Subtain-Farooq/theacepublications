@@ -73,6 +73,12 @@
                             </a>
                         </li>
 
+                        <li class="my-3 tracking-wide py-2 px-4 text-gray-700  @if(request()->is('invoices*')) 2 text-blue-800 font-bold @else text-gray-700 hover:text-blue-600 @endif">
+                            <a href="{{ route('console.invoices') }}" class="flex items-center">
+                                Invoices
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
 

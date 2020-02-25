@@ -65,7 +65,7 @@
 <div class="bg-gray-800 p-3">
     <div class="container mx-auto">
         <p class="text-white tracking-wider text-center">
-            Made with Love and Copyrights 2019 - 2022 ACE (Pvt) Ltd.
+            Copyrights 2019 - 2022 ACE (Pvt) Ltd.
         </p>
     </div>
 </div>

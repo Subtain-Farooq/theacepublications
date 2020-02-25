@@ -27,7 +27,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-100">
 <div id="app">
     @include('backend.layouts.components.navbar')
     <div class="px-8">

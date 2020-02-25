@@ -10,34 +10,14 @@
             {{--<h2 class="text-4xl font-bold tracking-wide mx-auto  text-white leading-none px-5 py-6 bg-blue-800 mt-16">Submit Your Journal</h2>--}}
 
             <div class="items-center px-16 py-12 border mt-6 mb-16 mx-auto">
-                <h1 class="text-blue-900 text-4xl font-bold tracking-wide mb-12">Submit Your Journal</h1>
+                <h1 class="text-blue-900 text-3xl mb-12">Submit Your Journal</h1>
 
 
 
                 <div class="w-full max-w-3xl mx-auto">
                     <form method="POST" action="{{ route('manuscript.store') }}" enctype="multipart/form-data">
                         @csrf
-                       {{-- <journal-category></journal-category>--}}
 
-                        {{--<div class="md:flex md:items-center mb-6">
-                            <div class="md:w-1/3 flex justify-start">
-                                <label class="text-lg text-blue-800">Select Journal Subject</label>
-                            </div>
-                            <div class="md:w-2/3 w-full overflow-hidden">
-                                <div class="relative">
-                                    <select  name="country" class="w-full text-gray-500 appearance-none px-3 py-2 border-2 outline-none @error('country') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror">
-                                        <option value="">Select Journal Subject</option>
-
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                    </div>
-                                </div>
-                                @error('country')
-                                <p class="text-red-600">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>--}}
 
 
                         <div class="md:flex md:items-center mb-6">
@@ -114,7 +94,7 @@
                                 <label class="text-lg text-blue-800">Abstract</label>
                             </div>
                             <div class="md:w-2/3">
-                                <input type="text" name="abstract" class="w-full px-3 py-2 border-2 outline-none @error('abstract') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('abstract') }}" placeholder="Abstract">
+                                <textarea name="abstract" class="w-full px-3 py-2 border-2 outline-none @error('abstract') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" rows="5" placeholder="Abstract">{{ old('abstract') }}</textarea>
                                 @error('abstract')
                                 <p class="text-red-600">{{ $message }}</p>
                                 @enderror

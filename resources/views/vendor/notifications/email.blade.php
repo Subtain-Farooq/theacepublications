@@ -6,7 +6,7 @@
 @if ($level === 'error')
 # @lang('Whoops!')
 @else
-# @lang('Welcome to ACE Publications!')
+# {{--@lang('Welcome to ACE Publications!')--}}
 @endif
 @endif
 

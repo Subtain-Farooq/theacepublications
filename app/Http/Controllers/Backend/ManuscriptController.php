@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Manuscript;
+use App\Models\Invoice;
 
 class ManuscriptController extends Controller
 {
@@ -13,8 +14,10 @@ class ManuscriptController extends Controller
     {
         if(is_null($status)){
             $manuscripts = Manuscript::all()->sortByDesc('created_at');
-        }else{
+        }elseif($status != 'pending'){
             $manuscripts = Manuscript::where('status', $status)->orderByDesc('created_at')->get();
+        }elseif($status == 'pending'){
+            $manuscripts = Invoice::where('status', 'pending')->orderByDesc('created_at')->get();
         }
 
         return view('backend.manuscripts.index')->with('manuscripts', $manuscripts);
@@ -34,7 +37,8 @@ class ManuscriptController extends Controller
 
     public function show($id)
     {
-        $manuscript = Manuscript::with(['user', 'journal', 'type', 'files'])->findOrFail($id);
+        $manuscript = Manuscript::with(['user', 'journal', 'type', 'files', 'invoice'])->findOrFail($id);
+
         return view('backend.manuscripts.show')->with('manuscript', $manuscript);
     }
 
@@ -47,8 +51,27 @@ class ManuscriptController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $manuscript = Manuscript::findOrFail($id);
         $result = $manuscript->update(['status' => $request->status]);
+
+        if($request->payment == 'pending'){
+            $str =  str_shuffle("ZAQWSXCDERFVBGTYHNMJUIKLOP");
+            $code = substr($str, 22).'-'.rand(555,10000);
+            $invoice_number = date('dmy').'-'.$code;
+            $generated_at = now();
+            $manuscript->invoice()->create([
+                'invoice_number' => $invoice_number,
+                'status' => 'pending',
+                'generated_at' => $generated_at,
+                'cleared_at' => null,
+            ]);
+        }elseif($request->payment == 'paid'){
+
+           $manuscript->invoice()->update([
+               'status' => 'paid'
+           ]);
+        }
 
         if($result){
             $alert = true;

@@ -61,9 +61,10 @@ class JournalController extends Controller
             'status' => $request->save
         ]);
 
-        $image = $request->file('image');
 
-        if($request->hasFile('image') && $image->isValid()){
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $image = $request->file('image');
             $path = 'public/journals/images';
             $public_path = 'storage/journals/images/';
             $size = $image->getSize();
@@ -81,6 +82,12 @@ class JournalController extends Controller
 
             $journal->image()->save($data);
             $journal->categories()->attach($request->category);
+        }else{
+            return redirect()->route('console.journals')->with([
+                'alert' => true,
+                'color' => 'red',
+                'message' => 'Unable to upload journal.'
+            ]);
         }
 
         return redirect()->route('console.journals')->with([

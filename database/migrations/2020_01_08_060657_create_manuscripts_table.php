@@ -18,11 +18,11 @@ class CreateManuscriptsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('journal_id');
             $table->unsignedInteger('type_id');
-            $table->string('title', '191');
+            $table->mediumText('title');
             $table->string('code', '191');
-            $table->string('authors', '191');
-            $table->string('abstract', '191');
-            $table->enum('status', ['payment awaited', 'submitted', 'in review', 'review in progress', 'accepted', 'rejected']);
+            $table->mediumText('authors');
+            $table->mediumText('abstract');
+            $table->enum('status', ['submitted', 'in review', 'review in progress', 'accepted', 'rejected']);
             $table->string('reason', '191')->nullable();
             $table->timestamps();
             $table->softDeletes();

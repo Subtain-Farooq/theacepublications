@@ -19,7 +19,7 @@
             @if($categories->isNotEmpty())
                 <table class="w-full border">
                     <thead>
-                    <tr class="bg-gray-200">
+                    <tr class="">
                         <th class="px-4 py-2 w-20">Sr No.</th>
                         <th class="px-4 py-2">Name</th>
                         <th class="px-4 py-2">Status</th>

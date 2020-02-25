@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['domain' => 'theacepublications.test', 'namespace' => 'Frontend', 'guard' => 'web'], function(){
+Route::group(['domain' => 'theacepublications.bb', 'namespace' => 'Frontend', 'guard' => 'web'], function(){
 
     Auth::routes(['verify' => true]);
 
@@ -79,13 +79,20 @@ Route::group(['domain' => 'theacepublications.test', 'namespace' => 'Frontend', 
         Route::get('profile/edit', 'ProfileController@edit')->name('dashboard.profile.edit');
         Route::post('profile/edit', 'ProfileController@update')->name('dashboard.profile.update');
 
-        //Manuscript
+        //Verified
         Route::group(['middleware' => 'verified'], function(){
 
+            //Manuscript
             Route::get('manuscript', 'ManuscriptController@create')->name('manuscript.create');
             Route::post('manuscript', 'ManuscriptController@store')->name('manuscript.store');
             Route::get('manuscript-management', 'ManuscriptController@index')->name('manuscript.manage');
             Route::get('manuscript-management/{id}', 'ManuscriptController@show')->name('manuscript.manage.show');
+
+            //Payment
+            Route::get('invoices', 'PaymentController@index')->name('invoice');
+            Route::get('invoice/{id}', 'PaymentController@show')->name('invoice.show');
+            Route::post('invoice/update/{id}', 'PaymentController@update')->name('invoice.update');
+            Route::get('invoice/{id}/download', 'PaymentController@invoice')->name('invoice.download');
 
         });
 
@@ -99,7 +106,7 @@ Route::group(['domain' => 'theacepublications.test', 'namespace' => 'Frontend', 
 
 //Console
 
-Route::group(['domain' => 'console.theacepublications.test', 'guard' => 'console', 'namespace' => 'Backend'], function () {
+Route::group(['domain' => 'console.theacepublications.bb', 'guard' => 'console', 'namespace' => 'Backend'], function () {
 
     Route::group(['namespace' => 'Auth', 'middleware' => 'guest:console'], function(){
 
@@ -199,6 +206,10 @@ Route::group(['domain' => 'console.theacepublications.test', 'guard' => 'console
         Route::get('reviewers/{id}/edit', 'ReviewerController@edit')->name('console.reviewer.edit');
         Route::post('reviewers/{id}/update', 'ReviewerController@update')->name('console.reviewer.update');
         Route::post('reviewers/{id}/destroy', 'ReviewerController@destroy')->name('console.reviewer.destroy');
+
+        //Invoices
+        Route::get('invoices', 'InvoiceController@index')->name('console.invoices');
+        Route::get('invoices/{id}/show', 'InvoiceController@show')->name('console.invoice.show');
 
     });
 });

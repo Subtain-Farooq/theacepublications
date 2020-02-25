@@ -6,7 +6,7 @@
     <div class="container mx-auto px-4">
         <div class="border mb-16 mt-6 px-16 py-12">
             <div class="flex justify-between items-center">
-                <h1 class="text-blue-900 text-4xl font-bold tracking-wide">Edit Profile</h1>
+                <h1 class="text-blue-900 text-3xl">Edit Profile</h1>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>

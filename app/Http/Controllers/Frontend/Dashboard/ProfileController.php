@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Storage;
 class ProfileController extends Controller
 {
 
+    public function index()
+    {
+        $countries = Country::all();
+        return view('frontend.dashboard.profile.index')->with('countries', $countries);
+    }
+
     public function edit()
     {
         $countries = Country::all();

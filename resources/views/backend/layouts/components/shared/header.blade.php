@@ -124,7 +124,7 @@
     </div>
 @endif
 
-{{--Revuewers--}}
+{{--Reviewers--}}
 @if(request()->is('reviewers*'))
 
     <div class="flex items-center justify-between mb-3">
@@ -132,6 +132,23 @@
         <div class="">
             @if(!request()->is('reviewers'))
                 <a href="{{ route('console.reviewer') }}" class="inline-block bg-blue-200 px-4 py-2 rounded hover:bg-blue-300">All Reviewers</a>
+            @endif
+
+            {{--@if(!request()->is('editors/deleted'))
+                <a href="{{ route('console.editors.deleted') }}" class="inline-block bg-red-200 px-4 py-2 rounded hover:bg-red-300">Deleted</a>
+            @endif--}}
+        </div>
+    </div>
+@endif
+
+{{--Invoices--}}
+@if(request()->is('invoices*'))
+
+    <div class="flex items-center justify-between mb-3">
+        <h2 class="text-3xl mb-2">Invoice Management</h2>
+        <div class="">
+            @if(!request()->is('invoices'))
+                <a href="{{ route('console.invoices') }}" class="inline-block bg-blue-200 px-4 py-2 rounded hover:bg-blue-300">All Invoices</a>
             @endif
 
             {{--@if(!request()->is('editors/deleted'))

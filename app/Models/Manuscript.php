@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Models\User;
 use App\Models\Journal;
 use App\Models\File;
+use App\Models\Invoice;
 use Illuminate\Notifications\Notifiable;
 
 class Manuscript extends Model
@@ -29,6 +30,10 @@ class Manuscript extends Model
 
     public function files(){
         return $this->hasMany(File::class);
+    }
+
+    public function invoice(){
+        return $this->hasOne(Invoice::class);
     }
 
 }

@@ -15,16 +15,15 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id', '191');
-            $table->unsignedInteger('user_id');
             $table->unsignedInteger('manuscript_id');
-            $table->integer('amount');
-            $table->string('description', '191')->nullable();
-            $table->enum('status', ['unpaid', 'paid']);
+            $table->string('invoice_number')->unique()->nullable();
+            $table->enum('status', ['pending', 'paid', 'no-action']);
+            $table->timestamp('generated_at')->nullable();
+            $table->timestamp('cleared_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('manuscript_id')->references('id')->on('manuscripts')->onDelete('cascade');
+            $table->foreign('manuscript_id')->references('id')->on('manuscripts');
         });
     }
 

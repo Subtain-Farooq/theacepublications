@@ -15,7 +15,7 @@
 
             </div>
             <div class="flex flex-col justify-start w-3/6">
-                <h1 class="text-blue-900 text-4xl font-bold tracking-wide capitalize">{{ Auth::user()->title }} {{ Auth::user()->name }}</h1>
+                <h1 class="text-blue-800 text-4xl tracking-wide capitalize">{{ Auth::user()->title }} {{ Auth::user()->name }}</h1>
                 <ul>
                     <li class="text-lg">
                         <span class="font-semibold text-gray-700 mr-1">Email : </span> <span class="text-gray-700">{{ Auth::user()->email }}</span>
@@ -34,7 +34,19 @@
                     <span class="text-2xl font-bold text-gray-700 capitalize">Submitted Articles</span>
                 </div>
                 <div class="flex-1 mx-1 p-2 bg-blue-200">
-                    <h3 class="text-6xl leading-none font-medium text-gray-600">2</h3>
+                    <?php $invoice = null; ?>
+                    @foreach( Auth::user()->manuscripts as $manuscript)
+                        @if(isset( $manuscript->invoice))
+                                <?php $invoice =  $manuscript->invoice->where('status', 'pending')->count() ?>
+                        @endif
+                    @endforeach
+                    <h3 class="text-6xl leading-none font-medium text-gray-600">
+                        @if(isset($invoice))
+                            {{ $invoice }}
+                        @else
+                            0
+                        @endif
+                    </h3>
                     <span class="text-2xl font-bold text-gray-700">Unpaid Invoices</span>
                 </div>
                 {{-- <div class="flex-1  mx-1 p-2 bg-gray-300">
@@ -49,8 +61,8 @@
                 <a href="{{ route('dashboard.profile') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/profile*')) bg-blue-900 @else hover:bg-blue-700 @endif ">Profile</a>
                 <a href="{{ route('manuscript.create') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/manuscript')) bg-blue-900 @else hover:bg-blue-700 @endif">Submit Manuscript</a>
                 <a href="{{ route('manuscript.manage') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/manuscript-management*')) bg-blue-900 @else hover:bg-blue-700 @endif">Manuscript Management</a>
-                <a href="#" class="px-5 py-4 text-white text-lg hover:bg-blue-700">Unpaid Invoices</a>
-                <a href="#" class="px-5 py-4 text-white text-lg hover:bg-blue-700">Payment Receipts</a>
+                <a href="{{ route('invoice') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/invoice*')) bg-blue-900 @else hover:bg-blue-700 @endif">Invoice Management</a>
+
                 <a href="{{ route('change-password') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/change-password')) bg-blue-900 @else hover:bg-blue-700 @endif">Change Password</a>
             </div>
         </div>

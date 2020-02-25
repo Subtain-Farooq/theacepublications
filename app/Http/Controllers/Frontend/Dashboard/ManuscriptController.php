@@ -40,10 +40,10 @@ class ManuscriptController extends Controller
 
         $request->validate([
             'journal' => 'required|numeric',
-            'title' => 'required|string|max:255',
+            'title' => 'required|string',
             'manuscript_type' => 'required|numeric',
             'authors' => 'required|string',
-            'abstract' => 'required|string|max:255',
+            'abstract' => 'required|string',
             'documents' => 'required|max:10240',
             'documents.*' => 'mimetypes:application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,application/msword'
 
