@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="bg-white px-32">
-        <div class="container mx-auto my-12">
+    <div class="bg-white">
+        <div class="container px-4 mx-auto my-12">
             <div class="">
                 <div class="flex justify-center">
                     <h1 class="text-2xl tracking-wide text-white main-font bg-blue-800 px-8 text-left inline-block mb-5">Guidelines for Authors</h1>

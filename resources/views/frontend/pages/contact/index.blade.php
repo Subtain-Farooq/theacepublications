@@ -8,9 +8,8 @@
             <p>{{ session('message') }}</p>
         </div>
         @endif
-        <div class="flex">
-
-            <div class=" w-2/5">
+        <div class="lg:flex w-full">
+            <div class="lg:w-2/5 w-full">
                 <div class="w-full">
                     <h1 class="text-3xl text-center py-6 text-white font-sans tracking-wide main-font bg-blue-800 text-left">Contact Information</h1>
                     <div class="py-8 px-12 border">
@@ -37,7 +36,7 @@
 
             </div>
 
-            <div class="w-3/5  border ml-4">
+            <div class="lg:w-3/5 lg:ml-4 lg:mt-0 mt-5 w-full border">
                 <div class="p-12">
                     <form method="POST" action="{{ route('contact.sendEmail') }}">
                         @csrf
@@ -89,42 +88,6 @@
     </div>
 </div>
 
-{{--
-
-    <div class="bg-white">
-        <div class="container mx-auto px-4 my-24">
-
-            <h1 class="text-6xl text-white main-font font-bold bg-blue-900 px-8 text-left inline-block mb-6">Contact Information</h1>
-            <p class="pb-12 text-justify text-lg">
-                Office No. 29-B, Creek Tower,
-                Baniyas Road, Dubai, UAE
-            </p>
-            <h1 class="text-5xl main-font font-bold text-blue-900 mb-2">Mission Statement</h1>
-            <div class="text-lg">
-                <p class="text-justify">
-                    Intellectualize the global scientific society through advancement and innovation. The targets that we have secured from ourselves:
-                </p>
-                <ul class="list-disc list-inside my-5">
-                    <li class="my-1">
-                        ACE Journals will completely hold fast to standard peer review process.
-                    </li>
-                    <li class="my-1">
-                        Every manuscript will subjected to quality peer-reviewing prior to publication and preceding production.
-                    </li>
-                    <li class="my-1">
-                        Participate in removing barriers to online research publishing which will greatly aid to the progress of disseminating scientific information from different disciplines.
-                    </li>
-                </ul>
-                <p class="my-5">
-                    ACE Publications will reliably channel the scientific data that comes to us by checking that important information is always be given priority over the data that may not be benefit the academic scientific world.
-                </p>
-                <p class="text-justify">
-                    Keeping the rising needs of the students and academicians at the post-graduation level, analysts at the Ph. D level, Educators, instructors, professors and regularly developing prerequisites of exploration researchers in perspective, ACE Publications always tries to welcome papers in every one of the subjects for distributed in its worldwide journals in the wake of fitting examination and compelling review. ACE Publications appropriates the progression and development in all subjects of the insightful world.
-                </p>
-            </div>
-        </div>
-    </div>
---}}
 
 
 @endsection

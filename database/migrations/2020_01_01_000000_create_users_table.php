@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email', '191')->unique();
             $table->string('mobile_number', '191')->unique()->nullable();
             $table->string('fax_number', '191')->unique()->nullable();
+            $table->mediumText('address')->nullable();
             $table->string('live_dna', '191')->unique()->nullable();
             $table->string('scopus', '191')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();

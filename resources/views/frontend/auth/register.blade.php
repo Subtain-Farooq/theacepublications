@@ -11,7 +11,7 @@
                 <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="flex flex-wrap overflow-hidden md:-mx-1 lg:-mx-1 xl:-mx-1">
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <div class="relative">
                                 <select  name="country" class="w-full text-gray-500 appearance-none px-3 py-2 border-2 outline-none @error('country') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror">
                                     <option value="">Select Country</option>
@@ -28,7 +28,7 @@
                             @enderror
                         </div>
 
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <div class="relative">
                                 <select name="title" class="w-full text-gray-500 appearance-none px-3 py-2 border-2 outline-none @error('title') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror">
                                     <option class="" value="">Title</option>
@@ -47,44 +47,44 @@
                             @enderror
                         </div>
 
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="text" name="name" class="w-full px-3 py-2 border-2 outline-none @error('name') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('name') }}" autocomplete="name" placeholder="Full Name">
                             @error('name')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="email" name="email" class="w-full px-3 py-2 border-2 outline-none @error('email') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('email') }}" autocomplete="email" placeholder="Email">
                             @error('email')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="text" name="mobile_number" class="w-full px-3 py-2 border-2 outline-none @error('mobile_number') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('mobile_number') }}" autocomplete="mobile_number" placeholder="Mobile Number">
                             @error('mobile_number')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="text" name="fax_number" class="w-full px-3 py-2 border-2 outline-none @error('fax_number') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('fax_number') }}" autocomplete="fax_number" placeholder="Fax Number">
                             @error('fax_number')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="text" name="live_dna" class="w-full px-3 py-2 border-2 outline-none @error('live_dna') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('live_dna') }}" autocomplete="email" placeholder="LiveDna ID">
                             @error('live_dna')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             <input type="text" name="scopus" class="w-full px-3 py-2 border-2 outline-none @error('scopus') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" value="{{ old('scopus') }}" autocomplete="email" placeholder="Scopus ID">
                             @error('scopus')
                             <p class="text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
 
                             {{-- <label>Address</label>--}}
                             <input type="text" name="address" class="w-full px-3 py-2 border-2 outline-none @error('address') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" placeholder="Address">
@@ -94,7 +94,7 @@
 
                         </div>
 
-                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+                        <div class="w-full overflow-hidden md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2 my-1">
                             {{-- <label>Password</label>--}}
                             <input type="password" name="password" class="w-full px-3 py-2 border-2 outline-none @error('password') border-red-500 focus:bg-red-100 @else focus:border-blue-700 @enderror" placeholder="Password">
                             @error('password')
