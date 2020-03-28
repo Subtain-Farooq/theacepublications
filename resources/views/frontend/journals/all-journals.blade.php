@@ -3,6 +3,7 @@
 @section('content')
     <div class="bg-white">
         <div class="container mx-auto px-4">
+            
             <div class="mt-8 mb-6">
                 <nav class="text-black font-bold " aria-label="Breadcrumb">
                     <ol class="list-none p-0 inline-flex">

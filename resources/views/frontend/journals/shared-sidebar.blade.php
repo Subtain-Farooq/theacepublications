@@ -1,3 +1,4 @@
+<div class="flex flex-col md:flex-col-reverse">
 <div class="w-full">
     <div class="text-white leading-none p-5 bg-blue-800">
         <h2 class="inline-block text-2xl font-sans antialiased">Journals Category</h2>
@@ -25,3 +26,9 @@
     </ul>
     <a href="{{ route('manuscript.create') }}" class="inline-block w-full bg-gray-400 text-gray-700 tracking-wide leading-sung py-1 my-4 text-center text-xl hover:text-white hover:bg-blue-900">Submit Your Manuscript</a>
 </div>
+    @if(!request()->is('journals') AND !request()->is('journals/subject*'))
+        <img src="{{ url($journal->image->path.'/'.$journal->image->name) }}" class="border-2 w-full object-left xl:hidden mb-5">
+    @endif
+    
+</div>
+

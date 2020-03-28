@@ -7,10 +7,11 @@
     <div class="container px-4 mx-auto">
         <div class="flex sm:items-center  sm:flex-row flex-col bg-white border p-8 mt-8">
             <div class="mr-2 lg:w-1/6 md:w-1/6">
+                
                 @if(isset(Auth::user()->image->path))
                     <img class="md:w-40 sm:w-24" src="{{ url(Auth::user()->image->path. Auth::user()->image->name) }}">
                 @else
-                    <img class="md:w-40 md:pr-0 sm:pr-2 sm:w-32" src="{{ url('images/avatar.jpeg') }}">
+                    <img class="md:w-40 md:pr-0 sm:pr-2 sm:w-32 pr-0" src="{{ url('images/avatar.jpeg') }}">
                 @endif
 
             </div>
@@ -57,15 +58,21 @@
                  </div>--}}
             </div>
         </div>
-        <div class="bg-blue-800">
-            <div class="flex flex-row flex-wrap justify-start overflow-hidden">
-                <a href="{{ route('dashboard') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard')) bg-blue-900 @else hover:bg-blue-700 @endif">Dashboard</a>
-                <a href="{{ route('dashboard.profile') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/profile*')) bg-blue-900 @else hover:bg-blue-700 @endif ">Profile</a>
-                <a href="{{ route('manuscript.create') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/manuscript')) bg-blue-900 @else hover:bg-blue-700 @endif">Submit Manuscript</a>
-                <a href="{{ route('manuscript.manage') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/manuscript-management*')) bg-blue-900 @else hover:bg-blue-700 @endif">Manuscript Management</a>
-                <a href="{{ route('invoice') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/invoice*')) bg-blue-900 @else hover:bg-blue-700 @endif">Invoice Management</a>
+        <div class="bg-blue-800 lg:mt-0 sm:mt-3 mt-3">
+            <div class="flex flex-row flex-wrap lg:justify-start  overflow-hidden leading-none text-center">
+               
+                <a href="{{ route('dashboard') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard')) bg-blue-900 @else hover:bg-blue-700 @endif">Dashboard</a>
+                
+                <a href="{{ route('dashboard.profile') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard/profile*')) bg-blue-900 @else hover:bg-blue-700 @endif">Profile</a>
+                
+                <a href="{{ route('manuscript.create') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard/manuscript')) bg-blue-900 @else hover:bg-blue-700 @endif">Submit Manuscript</a>
+                
+                <a href="{{ route('manuscript.manage') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard/manuscript-management*')) bg-blue-900 @else hover:bg-blue-700 @endif">Manuscript Management</a>
+               
+                <a href="{{ route('invoice') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard/invoice*')) bg-blue-900 @else hover:bg-blue-700 @endif">Invoice Management</a>
 
-                <a href="{{ route('change-password') }}" class="px-5 py-4 text-white text-lg @if(request()->is('dashboard/change-password')) bg-blue-900 @else hover:bg-blue-700 @endif">Change Password</a>
+                <a href="{{ route('change-password') }}" class="p-4 text-white lg:w-auto md:w-1/3 lg:border-transparent border border-white w-1/2 @if(request()->is('dashboard/change-password')) bg-blue-900 @else hover:bg-blue-700 @endif">Change Password</a>
+            
             </div>
         </div>
     </div>

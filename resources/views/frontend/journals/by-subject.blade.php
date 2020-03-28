@@ -27,7 +27,7 @@
                     @include('frontend.journals.shared-sidebar')
                 </div>
                 <div class="w-full  overflow-hidden md:my-2 md:px-2 md:w-4/6 lg:my-3 lg:px-3 lg:w-4/6 xl:my-3 xl:px-3 xl:w-4/6">
-                    <div class="ml-5">
+                    <div class="md:ml-5">
                             <div class="text-white leading-none p-5 bg-blue-800">
                                 <h2 class="inline-block text-2xl font-sans">{{ $category->name }}</h2>
                                 @if(!request()->is('journals'))

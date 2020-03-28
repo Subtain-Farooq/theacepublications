@@ -150,12 +150,12 @@
 
                     <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false" class="relative inline-block text-left">
                         <div>
-    <span class="shadow">
-      <button @click="open = !open" type="button" class="inline-block flex items-center justify-center h-12 w-12 rounded-full bg-gray-400 text-blue-800 text-3xl font-semibold uppercase hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150">
-         {{ substr(Auth::user()->name, 0 ,1 )}}
+                            <span class="shadow">
+                            <button @click="open = !open" type="button" class="inline-block flex items-center justify-center h-8 w-8 lg:h-10 lg:w-10 lg:text-2xl ml-5 rounded-full bg-gray-400 text-blue-800 font-semibold uppercase hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150">
+                                {{ substr(Auth::user()->name, 0 ,1 )}}
 
-      </button>
-    </span>
+                            </button>
+                            </span>
                         </div>
                         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg">
                             <div class="rounded-sm bg-white shadow-xs py-3">
