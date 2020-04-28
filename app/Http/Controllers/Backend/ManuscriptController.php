@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Http\Request;
 use App\Models\Manuscript;
 use App\Models\Invoice;
+use App\Notifications\ManuscriptStatusUpdated;
 
 class ManuscriptController extends Controller
 {
@@ -23,17 +25,6 @@ class ManuscriptController extends Controller
         return view('backend.manuscripts.index')->with('manuscripts', $manuscripts);
     }
 
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
 
     public function show($id)
     {
@@ -43,16 +34,11 @@ class ManuscriptController extends Controller
     }
 
 
-    public function edit($id)
-    {
-        //
-    }
-
-
     public function update(Request $request, $id)
     {
 
         $manuscript = Manuscript::findOrFail($id);
+
         $result = $manuscript->update(['status' => $request->status]);
 
         if($request->payment == 'pending'){
@@ -74,6 +60,8 @@ class ManuscriptController extends Controller
                 'cleared_at' => $cleared_at
             ]);
         }
+
+        Notification::send($manuscript->user, new ManuscriptStatusUpdated($manuscript));
 
         if($result){
             $alert = true;
