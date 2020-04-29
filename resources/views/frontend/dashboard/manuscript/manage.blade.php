@@ -46,14 +46,24 @@
                                         </td>
                                         <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                             <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                                            @if($manuscript->status == 'submitted' || $manuscript->status == 'in review' || $manuscript->status == 'review in progress')
-                                                <span class="rounded capitalize bg-teal-200 py-1 px-3 text-xs font-bold">{{ $manuscript->status }}</span>
+                                            @if($manuscript->status == 'published')
+                                                <span class="rounded-full capitalize bg-green-200 text-green-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'submitted')
+                                                <span class="rounded-full capitalize bg-teal-200 text-teal-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
                                             @elseif($manuscript->status == 'payment awaited')
-                                                <span class="rounded capitalize  bg-orange-200 py-1 px-3 text-xs font-bold">{{ $manuscript->status }}</span>
-                                            @elseif($manuscript->status == 'rejected')
-                                                <span class="rounded capitalize bg-red-200 py-1 px-3 text-xs font-bold">{{ $manuscript->status }}</span>
+                                                <span class="rounded-full capitalize bg-indigo-200 text-indigo-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'in review')
+                                                <span class="w-full block rounded-full capitalize bg-orange-200 text-orange-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'review in progress')
+                                                <span class="w-full block rounded-full capitalize bg-purple-200 text-purple-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
                                             @elseif($manuscript->status == 'accepted')
-                                                <span class="rounded capitalize bg-green-200 py-1 px-3 text-xs font-bold">{{ $manuscript->status }}</span>
+                                                <span class="w-full block rounded-full capitalize bg-blue-200 text-blue-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'rejected')
+                                                <span class="w-full block rounded-full capitalize bg-red-200 text-red-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'withdraw')
+                                                <span class="w-full block rounded-full capitalize bg-gray-200 text-gray-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
+                                            @elseif($manuscript->status == 'withdraw')
+                                                <span class="w-full block rounded-full capitalize bg-gray-200 text-gray-700 py-1 px-4 leading-none">{{ $manuscript->status }}</span>
                                             @endif
                                         </td>
 

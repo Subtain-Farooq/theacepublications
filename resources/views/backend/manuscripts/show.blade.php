@@ -224,6 +224,22 @@
                                 <div class="select-none">Rejected</div>
                             </label>
 
+                            <label class="flex justify-start items-start mr-4">
+                                <div class="bg-white border-2 rounded-full border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500">
+                                    <input type="radio" value="withdraw" name="status" class="opacity-0 absolute " @if($manuscript->status == 'withdraw') checked  @endif>
+                                    <svg class="fill-current hidden w-4 h-4 text-green-500 pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                </div>
+                                <div class="select-none">Withdraw</div>
+                            </label>
+
+                            <label class="flex justify-start items-start mr-4">
+                                <div class="bg-white border-2 rounded-full border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500">
+                                    <input type="radio" value="published" name="status" class="opacity-0 absolute " @if($manuscript->status == 'published') checked  @endif>
+                                    <svg class="fill-current hidden w-4 h-4 text-green-500 pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                                </div>
+                                <div class="select-none">Published</div>
+                            </label>
+
                             @error('status')
                             <p class="text-sm font-medium text-red-600">{{ $message }}</p>
                             @enderror

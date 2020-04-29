@@ -33,6 +33,7 @@
                         <th class="px-4 py-2">Code</th>
                         <th class="px-4 py-2">Title</th>
                         <th class="px-4 py-2">Status</th>
+                        <th class="px-4 py-2">Payment</th>
                         <th class="px-4 py-2">User Name</th>
                         <th class="px-4 py-2">Submitted Date</th>
                         <th class="px-4 py-2">Actions</th>
@@ -48,32 +49,55 @@
                             <td class="border px-4 py-2">
                                 <div class="flex justify-center">
                                     @if($manuscript->status == 'submitted')
-                                        <span class="text-orange-500 capitalize">
-                                            {{ $manuscript->status }}
-                                        </span>
-                                    @elseif($manuscript->status == 'payment awaited')
-                                        <span class="text-purple-500 capitalize">
+                                        <span class="block bg-teal-200 text-teal-800 px-4 py-1 leading-none rounded-full capitalize">
                                             {{ $manuscript->status }}
                                         </span>
                                     @elseif($manuscript->status == 'in review')
-                                        <span class="text-teal-500 capitalize">
+                                        <span class="block bg-orange-200 text-orange-800 px-4 py-1 leading-none rounded-full capitalize">
                                             {{ $manuscript->status }}
                                         </span>
                                     @elseif($manuscript->status == 'review in progress')
-                                        <span class="text-green-500 capitalize">
+                                        <span class="block bg-purple-200 text-purple-800 px-4 py-1 leading-none rounded-full capitalize">
                                             {{ $manuscript->status }}
                                         </span>
                                     @elseif($manuscript->status == 'accepted')
-                                        <span class="text-blue-500 capitalize">
+                                        <span class="block bg-blue-200 text-blue-800 px-4 py-1 leading-none rounded-full capitalize">
                                             {{ $manuscript->status }}
                                         </span>
                                     @elseif($manuscript->status == 'rejected')
-                                        <span class="text-red-500 capitalize">
+                                        <span class="block bg-red-200 text-red-600 px-4 py-1 leading-none rounded-full capitalize">
+                                            {{ $manuscript->status }}
+                                        </span>
+                                    @elseif($manuscript->status == 'withdraw')
+                                        <span class="block bg-gray-200 text-gray-800 px-4 py-1 leading-none rounded-full capitalize">
+                                            {{ $manuscript->status }}
+                                        </span>
+                                    @elseif($manuscript->status == 'published')
+                                        <span class="block bg-green-200 text-green-800 px-4 py-1 leading-none rounded-full capitalize">
                                             {{ $manuscript->status }}
                                         </span>
                                     @endif
-
                                 </div>
+                            </td>
+                            <td class="border px-4 py-2 text-left max-w-lg">
+                                <div class="flex justify-center">
+                                    @if($manuscript->invoice)
+                                        @if($manuscript->invoice->status == 'paid')
+                                            <span class="bg-green-200 text-green-700 px-4 py-1 leading-none rounded-full capitalize">
+                                                {{ $manuscript->invoice->status }}
+                                            </span>
+                                        @else
+                                            <span class="bg-yellow-200 text-yellow-700 px-4 py-1 leading-none rounded-full capitalize">
+                                                {{ $manuscript->invoice->status }}
+                                            </span>
+                                        @endif
+                                    @else
+                                        <span class="bg-orange-200 text-orange-700 px-4 py-1 leading-none rounded-full capitalize">
+                                               invoice not generated
+                                            </span>
+                                    @endif
+                                </div>
+
                             </td>
                             <td class="border px-4 py-2 w-56">
                                 <div class="flex justify-center">
