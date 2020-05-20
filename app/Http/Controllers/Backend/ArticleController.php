@@ -33,11 +33,11 @@ class ArticleController extends Controller
         $request->validate([
             'journal' => ['required'],
             'title' => ['required', 'string'],
-            'code' => ['required', 'string', 'max:255'],
+            'code' => ['required', 'string'],
             'authors' => ['required', 'string'],
-            'doi' => ['required', 'string', 'max:60'],
-            'doi_link' => ['required'],
-            'pages' => ['required', 'string', 'max:60'],
+            'doi' => ['string'],
+            'doi_link' => ['string'],
+            'pages' => ['required', 'string'],
             'abstract' => ['required', 'string'],
             'cite' => ['required', 'string'],
             'document' => 'required|file|max:10240',
@@ -85,6 +85,12 @@ class ArticleController extends Controller
 
             $article->document()->save($data);
 
+        }else{
+            return redirect()->route('console.articles.create')->with([
+                'alert' => true,
+                'color' => 'red',
+                'message' => 'File format is not correct'
+            ]);
         }
 
         return redirect()->route('console.articles')->with([
@@ -115,21 +121,23 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id)
     {
-        $article = Article::findOrFail($id);
-        $result = false;
+        $request->validate([
+            'journal' => ['required'],
+            'title' => ['required', 'string'],
+            'code' => ['required', 'string'],
+            'authors' => ['required', 'string'],
+            'doi' => ['string'],
+            'doi_link' => ['string'],
+            'pages' => ['required', 'string'],
+            'abstract' => ['required', 'string'],
+            'cite' => ['required', 'string'],
+        ]);
 
-        if($article->status == 'draft'){
-            $request->validate([
-                'journal' => ['required'],
-                'title' => ['required', 'string', 'max:255'],
-                'code' => ['required', 'string', 'max:255'],
-                'authors' => ['required', 'string', 'max:255'],
-                'doi' => ['required', 'string', 'max:60'],
-                'doi_link' => ['required', 'string'],
-                'pages' => ['required', 'string', 'max:60'],
-                'abstract' => ['required', 'string'],
-                'cite' => ['required', 'string'],
-            ]);
+
+
+
+        $article = Article::findOrFail($id);
+
 
             if(is_null($request->status)){
                 $status = 'draft';
@@ -137,7 +145,8 @@ class ArticleController extends Controller
                 $status = 'published';
             }
 
-            $article->update([
+
+            $result = $article->update([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
                 'code' => $request->code,
@@ -149,6 +158,8 @@ class ArticleController extends Controller
                 'cite' => $request->cite,
                 'status' => $status
             ]);
+
+
 
 
             if ($request->hasFile('document') && $request->file('document')->isValid()) {
@@ -185,23 +196,9 @@ class ArticleController extends Controller
                     'size' => $size
                 ]);
 
-                $article->document()->save($data);
+                $result = $article->document()->save($data);
 
             }
-
-            $result = true;
-        }elseif($article->status == 'published'){
-
-            $request->validate([
-                'doi_link' => ['required', 'string'],
-            ]);
-
-            $article->update([
-                'doi_link' => $request->doi_link,
-            ]);
-            $result = true;
-
-        }
 
         if($result){
             $alert = true;

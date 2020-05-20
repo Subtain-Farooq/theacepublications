@@ -20,7 +20,7 @@
                             <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
                         </li>
                         <li>
-                            <a href="#" class="text-gray-500" aria-current="page">{{ $article->doi }}</a>
+                            <a href="#" class="text-gray-500" aria-current="page">{{ $article->code }}</a>
                         </li>
                     </ol>
                 </nav>
@@ -40,9 +40,11 @@
                                             <span class="font-bold">Page No.</span> {{ $article->pages }}
                                         </p>
                                     </div>
-                                    <p class="text-gray-700  tracking-wider leading-loose">
-                                        <span class="font-bold">DOI:</span> <a href="{{ $article->doi_link }}" class="underline text-blue-700 hover:no-underline hover:text-blue-800">{{ $article->doi }}</a>
-                                    </p>
+                                    @if(!blank($article->doi))
+                                        <p class="text-gray-700  tracking-wider leading-loose">
+                                            <span class="font-bold">DOI:</span> <a href="{{ $article->doi_link }}" class="underline text-blue-700 hover:no-underline hover:text-blue-800">{{ $article->doi }}</a>
+                                        </p>
+                                    @endif
                                 </div>
                                 <div>
                                     <a href="{{ url($article->document->path. $article->document->name) }}" class="inline-block px-8 py-1 tracking-widest text-lg text-white bg-blue-800 hover:bg-blue-700" download>Download Article</a>
@@ -76,9 +78,11 @@
                          {!! $article->cite !!}
                     </div>
 
+                    @if(!blank($article->doi))
                     <div class="mt-2">
                         <span class="font-bold text-blue-900 tracking-wider">DOI:</span> <a href="{{ $article->doi_link }}" class="underline text-blue-700 hover:no-underline hover:text-blue-800 pl-1">{{ $article->doi }}</a>
                     </div>
+                    @endif
                     <div>
                         <span class="font-bold text-blue-900 tracking-wider">URL:</span> <a href="#" class="underline text-blue-700 hover:no-underline hover:text-blue-800 pl-1">{{ url()->current() }}</a>
                     </div>

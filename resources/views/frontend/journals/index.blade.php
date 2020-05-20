@@ -19,7 +19,7 @@
                         @endif
                     </div>
 
-                    @foreach($categories as $category)
+                    @fowreach($categories as $category)
 
                         <div class="my-2 ml-4">
                             <h1 class="text-3xl mb-2 text-blue-900 font-bold tracking-wide">{{ $category->name }}</h1>

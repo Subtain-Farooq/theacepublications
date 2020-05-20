@@ -38,7 +38,7 @@
                             <div class="mb-5 border-2 border-t-0 px-6 py-5 overflow-auto h-64">
                                 <div class="-my-5">
                                     @foreach($issues as $issue)
-                                        <a href="{{ route('manuscript', ['doi' => $issue->doi]) }}" class="block my-5">
+                                        <a href="{{ route('manuscript', ['code' => $issue->code]) }}" class="block my-5">
                                             <h4>{{ $issue->journal }}</h4>
                                             <h3 class="text-blue-700 text-lg text-justify hover:text-red-500">{{ $issue->title }}</h3>
                                             <p class="text-sm tracking-wide"><span class="font-bold mr-2 text-gray-800">Authors:</span>

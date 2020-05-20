@@ -48,7 +48,7 @@
                             @if(isset($journal->currentIssue->articles) && $journal->currentIssue->articles->isNotEmpty())
                                 @foreach($journal->currentIssue->articles as $article)
 
-                                    <a href="{{ route('manuscript', ['doi' => $article->doi]) }}" class="block group my-10 border-l-4 pl-6 border-blue-600 hover:border-red-500">
+                                    <a href="{{ route('manuscript', ['code' => $article->code]) }}" class="block group my-10 border-l-4 pl-6 border-blue-600 hover:border-red-500">
                                         <h3 class="text-blue-700 text-lg text-justify group-hover:text-red-500">{{ $article->title }}</h3>
                                         <p class="text-sm tracking-wide"><span class="font-bold mr-2 text-gray-800">Authors:</span>
                                             <span class="text-gray-700">

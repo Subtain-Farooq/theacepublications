@@ -63,8 +63,8 @@ Route::group(['domain' => 'theacepublications.bb', 'namespace' => 'Frontend', 'g
     Route::post('register/reviewer', 'ReviewerController@store')->name('reviewer.store');
 
     //Manuscript
-    Route::get('manuscript/{doi}', 'ManuscriptController@index')->name('manuscript');
-    Route::get('manuscript/archived/{doi}', 'ManuscriptController@archived')->name('manuscript.archived');
+    Route::get('manuscript/{code}', 'ManuscriptController@index')->name('manuscript');
+    Route::get('manuscript/archived/{code}', 'ManuscriptController@archived')->name('manuscript.archived');
 
 
 

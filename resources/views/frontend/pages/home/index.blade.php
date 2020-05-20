@@ -75,8 +75,8 @@
         <div class="flex flex-wrap items-center justify-between lg:-mx-2 xl:-mx-2">
             <div class="w-full lg:my-2 lg:px-3 lg:w-1/2 md:my-2 md:px-2 md:w-1/2 sm:w-3/5">
                 <div class="flex flex-col bg-white xl:pr-12">
-                    <h3 class="text-blue-800 lg:inline-block font-sans md:text-4xl lg:text-6xl sm:text-3xl text-3xl capitalize leading-none sm:mt-3 px-5">Skilled and experienced</h3>
-                    <p class="text-black text-justify lg:mt-12 md:mt-6 sm:mt-5 sm:leading-5 mt-4 p-5">
+                    <h3 class="text-blue-800 lg:inline-block font-sans md:text-4xl lg:text-6xl sm:text-3xl text-3xl capitalize lg:font-bold lg:tracking-wide leading-none sm:mt-3 px-5">Skilled and experienced</h3>
+                    <p class="text-black text-justify lg:mt-12 md:mt-6 sm:mt-5 sm:leading-5 lg:leading-8 mt-4 p-5 lg:text-lg">
                         ACE International Publications is an idyllic house that accepts quality research across the world without any country, boundaries and nationality. ACE International Publications provide services between the modern youth and the experienced, competent and qualified professionals through their intellectual awakening.
                     </p>
                 </div>
@@ -95,8 +95,8 @@
 
             <div class="w-full lg:my-2 lg:px-3 lg:w-1/2 md:my-2 md:px-2 md:w-1/2 sm:w-3/5">
                 <div class="flex flex-col lg:pl-12 md:pl-6">
-                    <h3 class="text-blue-800 lg:inline-block md:text-4xl font-sans  md:text-4xl lg:text-6xl sm:text-3xl text-3xl capitalize leading-none sm:mt-4 px-5">Publication Solutions</h3>
-                    <p class="text-black text-justify lg:mt-12 md:mt-6 sm:mt-5 sm:leading-5 mt-4 p-5">
+                    <h3 class="text-blue-800 lg:inline-block md:text-4xl font-sans  md:text-4xl lg:text-6xl sm:text-3xl text-3xl capitalize leading-none sm:mt-4 px-5 lg:font-bold lg:tracking-wide ">Publication Solutions</h3>
+                    <p class="text-black text-justify lg:mt-12 md:mt-6 sm:mt-5 sm:leading-5 mt-4 p-5 lg:text-lg lg:leading-8">
                         WE are better than the best in all areas of knowledge such as Mathematics, Physical Sciences, English, Management, Social Sciences, Biological Sciences, Arts and Education, Animal Sciences, Poultry Sciences, Veterinary Sciences, Pharmacy and Engineering Technology. ACE International Publications invite good quality of research work for peer reviewed journals
                     </p>
                 </div>

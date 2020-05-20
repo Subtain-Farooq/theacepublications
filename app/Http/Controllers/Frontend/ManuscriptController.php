@@ -8,14 +8,14 @@ use App\Models\Article;
 
 class ManuscriptController extends Controller
 {
-    public function index($doi){
-        $article = Article::where('doi', $doi)->with(['currentIssue', 'document'])->first();
+    public function index($code){
+        $article = Article::where('code', $code)->with(['currentIssue', 'document'])->first();
 
         return view('frontend.manuscript.index')->with('article', $article);
     }
 
-    public function archived($doi){
-        $article = Article::where('doi', $doi)->with(['archive', 'document'])->first();
+    public function archived($code){
+        $article = Article::where('code', $code)->with(['archive', 'document'])->first();
 
         return view('frontend.manuscript.archived')->with('article', $article);
     }

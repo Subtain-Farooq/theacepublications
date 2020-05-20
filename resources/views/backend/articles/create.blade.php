@@ -40,6 +40,16 @@
         <span class="block sm:inline">After publishing the article you are unable to update the article.</span>
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="bg-white p-8 rounded">
         <div class="w-full">
             <div class="flex justify-between">
