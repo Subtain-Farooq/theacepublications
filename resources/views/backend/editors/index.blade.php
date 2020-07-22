@@ -20,7 +20,8 @@
                     <tr class="bg-gray-200">
                         <th class="px-4 py-2 w-20">Sr No.</th>
                         <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">Assigned to Journal</th>
+                        <th class="px-4 py-2">Assigned as Editor</th>
+                        <th class="px-4 py-2">Assigned as Editor in Chief</th>
                         <th class="px-4 py-2">Status</th>
                         <th class="px-4 py-2">Action</th>
                         <th class="px-4 py-2">Assign Journals</th>
@@ -31,8 +32,23 @@
                         <tr class="hover:bg-gray-100">
                             <td class="border px-4 py-2 w-20 text-center">{{ $loop->iteration }}</td>
                             <td class="border px-4 py-2 capitalize">{{ $editor->name }}</td>
+
                             <td class="border px-4 py-2 text-center normal-case">
                                @if($editor->journals->isNotEmpty())
+
+                               <span class="text-blue-600"> Assigned</span>
+                                    {{-- @foreach($editor->journals as $journal)
+                                        <span class="mx-1 my-1 block">
+                                            {{ $journal->name }}
+                                        </span>
+                                    @endforeach --}}
+                               @else
+                                    <span class="text-red-600"> Not Assigned</span>
+                               @endif
+
+                            </td>
+                            <td class="border px-4 py-2 text-center normal-case">
+                               @if($editor->Ejournals->isNotEmpty())
 
                                <span class="text-blue-600"> Assigned</span>
                                     {{-- @foreach($editor->journals as $journal)

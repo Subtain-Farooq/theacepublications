@@ -3,11 +3,88 @@
 
 @section('content')
 
+{{--
+ <div class="relative bg-white overflow-hidden">
+  <div class="max-w-screen-xl mx-auto ">
+    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="50,0 100,0 50,100 0,100" />
+      </svg>
+
+      <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+        <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
+          <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+            <div class="flex items-center justify-between w-full md:w-auto">
+
+              <div class="-mr-2 flex items-center md:hidden">
+
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <div class="sm:text-center lg:text-left">
+          <h2 class="text-5xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-6xl sm:leading-none md:text-6xl">
+            The ACE Publications
+            <br class="xl:hidden" />
+            <span class="text-blue-800 md:text-4xl font-bold tracking-wide sm:text-lg text-2xl">Reliable Publishing Partner</span>
+          </h2>
+           <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+          </p>
+
+           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            <div class="rounded-md shadow">
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border-4 border-blue-800 text-base leading-6 font-bold tracking-wider text-lg uppercase text-white bg-blue-800 hover:bg-white hover:text-blue-800 focus:outline-none  transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                Journals
+              </a>
+            </div>
+            <div class="mt-3 sm:mt-0 sm:ml-3">
+              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border-4 border-blue-800 uppercase text-base leading-6 font-bold text-lg tracking-wider text-blue-800 bg-white hover:text-white hover:bg-blue-800 focus:outline-none transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                Submit Article
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1514593214839-ce1849100055?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" alt="" />
+  </div>
+</div>
+--}}
 
 
 
 
-<img class="object-cover w-full md:inline-block hidden" style="height: 450px;"  src="{{ url('/images/background/image7.jpg') }}">
+
+<img class="object-contain md:inline-block hidden"   src="{{ url('/images/background/books2-min.jpg') }}">
+
+@if($issues->isNotEmpty())
+    <div class="my-12 bg-white p-8">
+        <div class="container mx-auto px-4">
+            <h1 class="inline-block tracking-wide leading-none lg:text-5xl md:text-5xl text-4xl font-sans text-blue-800 py-1 border-b-4 border-blue-800 border-dotted">Latest Issue</h1>
+
+            @foreach($issues as $issue)
+                <a href="{{ route('manuscript', ['code' => $issue->code]) }}" class="block my-8 border-l-8 border-blue-800 hover:border-blue-600 bg-gray-100 px-12 py-8">
+                    <h3 class="text-xl text-blue-700 text-justify">
+                        {{ $issue->title }}
+                    </h3>
+                    {{ $issue->journal }}
+                    <p class="text-teal-700 text-lg my-2">
+                        <span class="text-gray-800 font-bold">Authors:</span>  {{ $issue->authors }}
+                    </p>
+                </a>
+            @endforeach
+
+
+        </div>
+    </div>
+@endif
 
 <div class="bg-gray-100 pt-12 pb-24 ">
     <div class="container mx-auto px-4">
@@ -18,6 +95,7 @@
         </div>
 
         <div class="flex flex-wrap items-stretch xl:-mx-3 lg:-mx-3 md:-mx-3 sm:-mx-3 mt-16">
+
             <div class="w-full lg:my-3 lg:px-3 lg:w-1/2 md:my-3 md:px-3 sm:px-3 sm:py-2 py-2">
                 <div class="bg-white p-4 ">
                     <div class="flex items-center sm:flex-row flex-col border-4 border-blue-700 p-5">

@@ -185,6 +185,7 @@ Route::group(['domain' => 'console.theacepublications.bb', 'guard' => 'console',
         //Editors Journal relation
         Route::get('editors/journal-editor/{id}', 'EditorController@editEditorJournal')->name('console.editors.relation.edit');
         Route::post('editors/journal-editors/{id}', 'EditorController@editorJournal')->name('console.editors.relation');
+        Route::post('editors/journal-editors-in-chief/{id}', 'EditorController@editorInChiefJournal')->name('console.editors-in-chief.relation');
 
 
         //Manuscript

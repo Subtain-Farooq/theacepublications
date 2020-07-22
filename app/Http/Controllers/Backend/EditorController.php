@@ -87,7 +87,7 @@ class EditorController extends Controller
 
     public function show($id)
     {
-        $editor = Editor::with(['journals', 'country'])->findOrFail($id);
+        $editor = Editor::with(['journals', 'country', 'Ejournals'])->findOrFail($id);
         return view('backend.editors.show')->with([
             'editor' => $editor
         ]);
@@ -173,7 +173,7 @@ class EditorController extends Controller
 
     public function editEditorJournal($id){
         $journals = Journal::all();
-        $editor = Editor::where('id', $id)->with('journals')->first();
+        $editor = Editor::where('id', $id)->with(['journals', 'Ejournals'])->first();
 
         return view('backend.editors.assign')->with([
             'editor' => $editor,
@@ -208,6 +208,39 @@ class EditorController extends Controller
             $message = 'Unable to assign journals to editor';
         }
         return $this->alert($alert, $color, $message);
+    }
+
+    public function editorInChiefJournal(Request $request, $id)
+    {
+        $editor = Editor::where(['id' => $id, 'status' => 1])->firstORFail();
+        $journals = $request->journals;
+
+        foreach($journals as $journal)
+        {
+            $as = 'as'.$journal;
+            if($request->$as == 1){
+                $result = Journal::where('id', $journal)->update(['editor_id' => $id]);
+            }elseif($request->$as == 0){
+                $result = Journal::where('id', $journal)->update(['editor_id' => null]);
+            }
+        }
+        if($result){
+            $alert = true;
+            $color = 'teal';
+            $message = 'Journals assigned to editor in chief successfully.';
+        }elseif($editor){
+
+            $alert = true;
+            $color = 'red';
+            $message = 'Unable to assign journals to disabled editor. Journals can be assigned to only active editors.';
+
+        }else{
+            $alert = true;
+            $color = 'orange';
+            $message = 'Unable to assign journals to editor in chief';
+        }
+        return $this->alert($alert, $color, $message);
+
     }
 
     public function destroy($id)

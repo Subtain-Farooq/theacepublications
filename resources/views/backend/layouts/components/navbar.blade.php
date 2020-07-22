@@ -47,6 +47,12 @@
                                 Editors
                             </a>
                         </li>
+                     {{--   <li class="my-3 tracking-wide py-2 px-4 text-gray-700  @if(request()->is('editor-in-chief*'))  text-blue-800 font-bold @else text-gray-700 hover:text-blue-600 @endif">
+                            <a href="" class="flex items-center">
+
+                                Editor-in-chief
+                            </a>
+                        </li>--}}
 
                         <li class="my-3 tracking-wide py-2 px-4 text-gray-700  @if(request()->is('users*'))  text-blue-800 font-bold @else text-gray-700 hover:text-blue-600 @endif">
                             <a href="{{ route('console.users') }}" class="flex items-center">

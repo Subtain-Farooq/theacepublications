@@ -41,40 +41,67 @@
 
                     @include('frontend.journals.single.shared-title')
 
-                    <div class="my-5">
-                        <h1 class="text-2xl main-font mt-3 mb-4 font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">Editorial Board Members</h1>
-                        <div class="">
+                    @if($journal->editor)
+                        <div class="my-5">
+                            <h1 class="text-2xl main-font mt-3 mb-4 font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">Editor in Chief</h1>
+                            <div class="w-full overflow-hidden my-2">
+                                <div class="flex border border-blue-500">
+                                    @if($journal->editor->image)
+                                        <img src="{{ url($journal->editor->image->path.$journal->editor->image->name) }}" class="w-40 h-40 object-center object-cover">
+                                    @else
+                                        <img src="{{ url('images/avatar.jpeg') }}" class="w-32 h-32">
+                                    @endif
+                                    <div class=" w-full ">
+                                        <div class="flex flex-row justify-between items-center flex-wrap bg-blue-800 px-3 py-2">
+                                                    <span class="text-gray-100 text-2xl font-bold tracking-wide">
+                                                        {{ $journal->editor->name }}
+                                                    </span>
+                                            <span class="text-lg text-gray-100">
+                                                        {{ $journal->editor->country->name }}
+                                                    </span>
+                                        </div>
+                                        <div class="flex items-end justify-end text-lg text-justify px-3 py-2">
+                                            {{ $journal->editor->departmental_address }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div class="flex flex-wrap overflow-hidden -my-2">
+                            <h1 class="text-2xl main-font mt-3 mb-4 font-bold text-blue-800 border-l-4 border-blue-800 inline-block pl-2">Editorial Board Members</h1>
+                            <div class="">
 
-                                @foreach($journal->editors as $editor)
-                                    <div class="w-full overflow-hidden my-2">
-                                        <div class="flex">
-                                            @if($editor->image)
-                                            <img src="{{ url($editor->image->path.$editor->image->name) }}" class="w-32 h-32">
-                                            @else
-                                                <img src="{{ url('images/avatar.jpeg') }}" class="w-32 h-32">
-                                            @endif
-                                            <div class="border w-full">
+                                <div class="flex flex-wrap overflow-hidden -my-2">
 
-                                                <div class="flex flex-row justify-between flex-wrap bg-gray-200 px-3 py-2">
+                                    @foreach($journal->editors as $editor)
+                                        <div class="w-full overflow-hidden my-2">
+                                            <div class="flex">
+                                                @if($editor->image)
+                                                    <img src="{{ url($editor->image->path.$editor->image->name) }}" class="w-32 h-32">
+                                                @else
+                                                    <img src="{{ url('images/avatar.jpeg') }}" class="w-32 h-32">
+                                                @endif
+                                                <div class="border w-full">
+
+                                                    <div class="flex flex-row justify-between flex-wrap bg-gray-200 px-3 py-2">
                                                     <span class="text-gray-800 text-lg font-bold tracking-wide">
                                                         {{ $editor->name }}
                                                     </span>
                                                         <span class="text-sm text-gray-600">
                                                         {{ $editor->country->name }}
                                                     </span>
-                                                </div>
-                                                <div class="mt-1 text-sm text-justify px-3 py-2">
-                                                    {{ $editor->departmental_address }}
+                                                    </div>
+                                                    <div class="mt-1 text-sm text-justify px-3 py-2">
+                                                        {{ $editor->departmental_address }}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
+
 
                 </div>
             </div>

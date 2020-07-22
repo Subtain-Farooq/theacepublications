@@ -34,6 +34,10 @@ class Journal extends Model
         return $this->hasOne(File::class)->where(['user_id' => null, 'manuscript_id' => null]);
     }
 
+    public function editor(){
+        return $this->belongsTo(Editor::class);
+    }
+
     public function editors(){
         return $this->belongsToMany(Editor::class, 'editor_journal');
     }

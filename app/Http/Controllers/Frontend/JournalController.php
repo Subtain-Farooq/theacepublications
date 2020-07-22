@@ -19,6 +19,7 @@ class JournalController extends Controller
         $categories = Category::where('status', 1)->with(['journals' => function($request){
             $request->where('status', 'published')->with('image');
         }])->get();
+
         $issues = Article::select('title', 'code', 'authors')->where('status', 'published')->with('currentIssue')->get();
         $journals = Journal::where('status', 'published')->with('currentIssue')->get();
 

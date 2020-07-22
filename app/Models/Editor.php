@@ -18,8 +18,13 @@ class Editor extends Model
     protected $dates = [
         'deleted_at'
     ];
+
     public function journals(){
         return $this->belongsToMany(Journal::class, 'editor_journal');
+    }
+
+    public function Ejournals(){
+        return $this->hasMany(Journal::class, 'editor_id');
     }
 
     public function country(){

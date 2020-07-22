@@ -15,6 +15,7 @@ class CreateJournalsTable extends Migration
     {
         Schema::create('journals', function (Blueprint $table) {
             $table->increments('id', '191');
+            $table->unsignedInteger('editor_id')->nullable();
             $table->string('name', '191');
             $table->string('slug', '191');
             $table->string('issn', '191')->unique();
@@ -24,6 +25,8 @@ class CreateJournalsTable extends Migration
             $table->enum('status', ['draft', 'published'])->default('draft');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('editor_id')->references('id')->on('editors');
         });
     }
 

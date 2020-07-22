@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function home(){
-        return view('frontend.pages.home.index');
+        $issues = Article::select('title', 'code', 'authors')->where('status', 'published')->with('currentIssue')->limit(3)->get();
+        return view('frontend.pages.home.index', compact('issues'));
     }
 
     public function about(){
